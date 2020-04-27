@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace HackerRank
 {
-    public static class Exercises
+    public static class WarmUpChallenges
     {
         public static int CountingValleys(int n, string s)
         {
