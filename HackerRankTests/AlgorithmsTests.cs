@@ -76,6 +76,6 @@ namespace HackerRankTests
         [TestCase("07:05:45PM", ExpectedResult = "19:05:45")]
         public string TimeConversionTest(string s)
             => Algorithms.TimeConversion(s);
-        
+
     }
 }

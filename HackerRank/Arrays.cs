@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace HackerRank
@@ -20,6 +21,88 @@ namespace HackerRank
                 }
             }
             return sum;
+        }
+
+        public static int MinimumBribes(int[] q)
+        {
+            var totalBribes = 0;
+            var isTooChaotic = false;
+            bool isOrdered;
+            do
+            {
+                isOrdered = true;
+                for (var i = 0; i < q.Length - 1; i++)
+                {
+                    if (q[i] > q[i + 1])
+                    {
+                        var dif = q[i] - i - 1;
+                        if (dif > 0)
+                        {
+                            isOrdered = false;
+                        }
+                        if (!isTooChaotic && dif > 2)
+                        {
+                            isTooChaotic = true;
+                        }
+                        var temp = q[i];
+                        q[i] = q[i + 1];
+                        q[i + 1] = temp;
+                        totalBribes++;
+                    }
+                }
+            }
+            while (!isOrdered);
+            return isTooChaotic ? -1 : totalBribes;
+        }
+
+        public static void MinimumBribesOnline(int[] q)
+        {
+            var totalBribes = 0;
+            var isTooChaotic = false;
+            bool isOrdered;
+            do
+            {
+                isOrdered = true;
+                for (var i = 0; i < q.Length - 1; i++)
+                {
+                    if (q[i] > q[i + 1])
+                    {
+                        var dif = q[i] - i - 1;
+                        if (dif > 0)
+                        {
+                            isOrdered = false;
+                        }
+                        if (!isTooChaotic && dif > 2)
+                        {
+                            isTooChaotic = true;
+                        }
+                        var temp = q[i];
+                        q[i] = q[i + 1];
+                        q[i + 1] = temp;
+                        totalBribes++;
+                    }
+                }
+            }
+            while (!isOrdered);
+            if (isTooChaotic)
+            {
+                Console.WriteLine("Too chaotic");
+            }
+            else
+            {
+                Console.WriteLine(totalBribes);
+            }
+        }
+
+        public static int[] RotLeft(int[] a, int d)
+        {
+            var updatedA = new List<int>();
+            for (var i = 0; i < a.Length; i++)
+            {
+                var index = Math.Abs((a.Length + d + i) % a.Length);
+                updatedA.Add(a[index]);
+            }
+            return updatedA.ToArray();
         }
 
         public static int[] RotLeftLinq(int[] a, int d)

@@ -70,7 +70,7 @@ namespace HackerRank
                     {
                         updatedGrades.Add(grade + dif);
                     }
-                    else 
+                    else
                     {
                         updatedGrades.Add(grade);
                     }

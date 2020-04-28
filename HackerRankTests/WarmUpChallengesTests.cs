@@ -10,7 +10,7 @@ namespace HackerRankTests
         [TestCase(12, "DDUUDDUDUUUD", ExpectedResult = 2)]
         public int CountingValleysTest(int n, string s)
             => WarmUpChallenges.CountingValleys(n, s);
-        
+
         [Test]
         [TestCase(new int[] { 0, 0, 1, 0, 0, 1, 0 }, ExpectedResult = 4)]
         [TestCase(new int[] { 0, 0, 0, 1, 0, 0 }, ExpectedResult = 3)]

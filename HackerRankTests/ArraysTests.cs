@@ -12,12 +12,30 @@ namespace HackerRankTests
             => Arrays.HourglassSum(arr);
 
         [Test]
+        [TestCase(new int[] { 1, 2, 3, 4, 5 }, ExpectedResult = 0)]
+        [TestCase(new int[] { 2, 1, 5, 3, 4 }, ExpectedResult = 3)]
+        [TestCase(new int[] { 2, 5, 1, 3, 4 }, ExpectedResult = -1)]
+        [TestCase(new int[] { 5, 1, 2, 3, 7, 8, 6, 4 }, ExpectedResult = -1)]
+        [TestCase(new int[] { 1, 2, 5, 3, 7, 8, 6, 4 }, ExpectedResult = 7)]
+        [TestCase(new int[] { 1, 2, 5, 3, 4, 7, 8, 6 }, ExpectedResult = 4)]
+        public int MinimumBribesTest(int[] q)
+            => Arrays.MinimumBribes(q);
+
+        [Test]
         [TestCase(new int[] { 1, 2, 3, 4, 5 }, 2, ExpectedResult = new int[] { 3, 4, 5, 1, 2 })]
         [TestCase(new int[] { 1, 2, 3, 4, 5 }, 4, ExpectedResult = new int[] { 5, 1, 2, 3, 4 })]
         [TestCase(new int[] { 41, 73, 89, 7, 10, 1, 59, 58, 84, 77, 77, 97, 58, 1, 86, 58, 26, 10, 86, 51 }, 10, ExpectedResult = new int[] { 77, 97, 58, 1, 86, 58, 26, 10, 86, 51, 41, 73, 89, 7, 10, 1, 59, 58, 84, 77 })]
         [TestCase(new int[] { 33, 47, 70, 37, 8, 53, 13, 93, 71, 72, 51, 100, 60, 87, 97 }, 13, ExpectedResult = new int[] { 87, 97, 33, 47, 70, 37, 8, 53, 13, 93, 71, 72, 51, 100, 60 })]
         public int[] RotLeftLinqTest(int[] a, int d)
             => Arrays.RotLeftLinq(a, d);
+
+        [Test]
+        [TestCase(new int[] { 1, 2, 3, 4, 5 }, 2, ExpectedResult = new int[] { 3, 4, 5, 1, 2 })]
+        [TestCase(new int[] { 1, 2, 3, 4, 5 }, 4, ExpectedResult = new int[] { 5, 1, 2, 3, 4 })]
+        [TestCase(new int[] { 41, 73, 89, 7, 10, 1, 59, 58, 84, 77, 77, 97, 58, 1, 86, 58, 26, 10, 86, 51 }, 10, ExpectedResult = new int[] { 77, 97, 58, 1, 86, 58, 26, 10, 86, 51, 41, 73, 89, 7, 10, 1, 59, 58, 84, 77 })]
+        [TestCase(new int[] { 33, 47, 70, 37, 8, 53, 13, 93, 71, 72, 51, 100, 60, 87, 97 }, 13, ExpectedResult = new int[] { 87, 97, 33, 47, 70, 37, 8, 53, 13, 93, 71, 72, 51, 100, 60 })]
+        public int[] RotLeftTest(int[] a, int d)
+            => Arrays.RotLeft(a, d);
 
         // data sources
 

@@ -33,9 +33,9 @@ namespace HackerRank
         {
             var jumps = 0;
             var i = 0;
-            while (i < c.Length - 1) 
+            while (i < c.Length - 1)
             {
-                i = i + 2 <= c.Length -1 && c[i + 2] == 0 ? i + 2 : i + 1;
+                i = i + 2 <= c.Length - 1 && c[i + 2] == 0 ? i + 2 : i + 1;
                 jumps++;
             }
             return jumps;
