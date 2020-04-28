@@ -3,13 +3,19 @@ using NUnit.Framework;
 
 namespace HackerRankTests
 {
-    public class WarmUpChallengesTests
+    class WarmUpChallengesTests
     {
         [Test]
         [TestCase(8, "UDDDUDUU", ExpectedResult = 1)]
         [TestCase(12, "DDUUDDUDUUUD", ExpectedResult = 2)]
         public int CountingValleysTest(int n, string s)
             => WarmUpChallenges.CountingValleys(n, s);
+        
+        [Test]
+        [TestCase(new int[] { 0, 0, 1, 0, 0, 1, 0 }, ExpectedResult = 4)]
+        [TestCase(new int[] { 0, 0, 0, 1, 0, 0 }, ExpectedResult = 3)]
+        public int JumpingOnCloudsTest(int[] c)
+            => WarmUpChallenges.JumpingOnClouds(c);
 
         [Test]
         [TestCase(7, new int[] { 1, 2, 1, 2, 1, 3, 2 }, ExpectedResult = 2)]
