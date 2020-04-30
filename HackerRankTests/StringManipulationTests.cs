@@ -59,5 +59,21 @@ namespace HackerRankTests
         [TestCase("showman", "woman", ExpectedResult = 2)]
         public int MakeAnagramTest(string text1, string text2)
             => StringManipulation.MakeAnagram(text1, text2);
+
+        [Test]
+        [TestCase(8, "mnonopoo", ExpectedResult = 12)]
+        [TestCase(5, "asasd", ExpectedResult = 7)]
+        [TestCase(7, "abcbaba", ExpectedResult = 10)]
+        [TestCase(4, "aaaa", ExpectedResult = 10)]
+        public long SubstrCountLinqTest(int number, string text)
+            => StringManipulation.SubstrCountLinq(number, text);
+
+        [Test]
+        [TestCase(8, "mnonopoo", ExpectedResult = 12)]
+        [TestCase(5, "asasd", ExpectedResult = 7)]
+        [TestCase(7, "abcbaba", ExpectedResult = 10)]
+        [TestCase(4, "aaaa", ExpectedResult = 10)]
+        public long SubstrCountTest(int number, string text)
+            => StringManipulation.SubstrCount(number, text);
     }
 }

@@ -55,5 +55,48 @@ namespace HackerRank
             => string.Concat(a, b).Distinct()
                                   .Select(letter => Math.Abs(a.Count(c => c == letter) - b.Count(c => c == letter)))
                                   .Sum();
+
+        public static long SubstrCount(int n, string s)
+        {
+            long total = n;
+            for (var i = 0; i < n; i++)
+            {
+                var differentLetterIndex = -1;
+                for (var j = i + 1; j < n; j++)
+                {
+                    if (s[i] == s[j])
+                    {
+                        if (differentLetterIndex == -1 || differentLetterIndex - i == j - differentLetterIndex)
+                        {
+                            total++;
+                        }
+                    }
+                    else
+                    {
+                        if (differentLetterIndex == -1)
+                        {
+                            differentLetterIndex = j;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+            return total;
+        }
+
+        public static long SubstrCountLinq(int n, string s)
+        {
+            var subStrings = Enumerable.Range(1, n)
+                                       .SelectMany(i => Enumerable.Range(0, n - i + 1)
+                                                                  .Select(j => s.Substring(j, i)))
+                                       .ToList();
+            return subStrings.Where(subString => subString.All(letter => letter == subString.First()) ||
+                                                 subString.Substring(0, subString.Length / 2).All(letter => letter == subString.First()) &&
+                                                 subString.Substring(subString.Length - subString.Length / 2).All(letter => letter == subString.First()))
+                             .LongCount();
+        }
     }
 }
