@@ -71,16 +71,13 @@ namespace HackerRank
                             total++;
                         }
                     }
+                    else if (differentLetterIndex == -1)
+                    {
+                        differentLetterIndex = j;
+                    }
                     else
                     {
-                        if (differentLetterIndex == -1)
-                        {
-                            differentLetterIndex = j;
-                        }
-                        else
-                        {
-                            break;
-                        }
+                        break;
                     }
                 }
             }
