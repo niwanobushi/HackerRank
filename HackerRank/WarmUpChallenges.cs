@@ -48,7 +48,9 @@ namespace HackerRank
             var aCount = s.ToCharArray().Count(c => c == 'a') * times;
             if (mod > 0)
             {
-                aCount += s.Substring(0, (int)mod).ToCharArray().Count(c => c == 'a');
+                aCount += s.Substring(0, (int)mod)
+                           .ToCharArray()
+                           .Count(c => c == 'a');
             }
             return aCount;
         }

@@ -85,18 +85,18 @@ namespace HackerRank
 
         public static List<int> GradingStudentsLinq(List<int> grades)
             => grades.Select(grade =>
-            {
-                if (grade >= 38)
-                {
-                    var dif = 5 - grade % 5;
-                    if (dif < 3)
-                    {
-                        return grade + dif;
-                    }
-                }
-                return grade;
-            })
-            .ToList();
+                     {
+                         if (grade >= 38)
+                         {
+                             var dif = 5 - grade % 5;
+                             if (dif < 3)
+                             {
+                                 return grade + dif;
+                             }
+                         }
+                         return grade;
+                     })
+                     .ToList();
 
         public static float[] PlusMinus(int[] arr)
         {
