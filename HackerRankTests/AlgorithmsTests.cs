@@ -37,6 +37,18 @@ namespace HackerRankTests
             => Algorithms.CompareTheTriplets(numbers1.ToList(), numbers2.ToList());
 
         [Test]
+        [TestCase(7, 10, 4, 12, new int[] { 2, 3, -4 }, new int[] { 3, -2, -4 }, ExpectedResult = new int[] { 1, 2 })]
+        [TestCase(7, 11, 5, 15, new int[] { -2, 2, 1 }, new int[] { 5, -6 }, ExpectedResult = new int[] { 1, 1 })]
+        public int[] CountApplesAndOrangesLinqTest(int number1, int number2, int number3, int number4, int[] numbers1, int[] numbers2)
+            => Algorithms.CountApplesAndOrangesLinq(number1, number2, number3, number4, numbers1, numbers2);
+
+        [Test]
+        [TestCase(7, 10, 4, 12, new int[] { 2, 3, -4 }, new int[] { 3, -2, -4 }, ExpectedResult = new int[] { 1, 2 })]
+        [TestCase(7, 11, 5, 15, new int[] { -2, 2, 1 }, new int[] { 5, -6 }, ExpectedResult = new int[] { 1, 1 })]
+        public int[] CountApplesAndOrangesTest(int number1, int number2, int number3, int number4, int[] numbers1, int[] numbers2)
+            => Algorithms.CountApplesAndOranges(number1, number2, number3, number4, numbers1, numbers2);
+
+        [Test]
         [TestCase(new int[] { 73, 67, 38, 33 }, ExpectedResult = new int[] { 75, 67, 40, 33 })]
         public List<int> GradingStudentsLinqTest(int[] numbers)
             => Algorithms.GradingStudentsLinq(numbers.ToList());

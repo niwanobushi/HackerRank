@@ -1,5 +1,7 @@
 ﻿using HackerRank;
 using NUnit.Framework;
+using System.Collections;
+using System.Linq;
 
 namespace HackerRankTests
 {
@@ -32,6 +34,17 @@ namespace HackerRankTests
         [TestCase("ABBABBAA", ExpectedResult = 3)]
         public int AlternatingCharactersTest(string text)
             => StringManipulation.AlternatingCharacters(text);
+
+        [Test]
+        [TestCase("ABCD", "ABDC", ExpectedResult = 3)]
+        [TestCase("HARRY", "SALLY", ExpectedResult = 2)]
+        [TestCase("AA", "BB", ExpectedResult = 0)]
+        [TestCase("SHINCHAN", "NOHARAAA", ExpectedResult = 3)]
+        [TestCase("ABCDEF", "FBDAMN", ExpectedResult = 2)]
+        [TestCase("WEWOUCUIDGCGTRMEZEPXZFEJWISRSBBSYXAYDFEJJDLEBVHHKS", "FDAGCXGKCTKWNECHMRXZWMLRYUCOCZHJRRJBOAJOQJZZVUYXIC", ExpectedResult = 15)]
+        [TestCaseSource(typeof(CommonChildTestData), "TestCases")]
+        public int CommonChildTest(string text1, string text2)
+            => StringManipulation.CommonChild(text1, text2);
 
         [Test]
         [TestCase("abcc", ExpectedResult = "YES")]
@@ -75,5 +88,19 @@ namespace HackerRankTests
         [TestCase(4, "aaaa", ExpectedResult = 10)]
         public long SubstrCountTest(int number, string text)
             => StringManipulation.SubstrCount(number, text);
+
+        // data sources
+
+        public class CommonChildTestData
+        {
+            public static IEnumerable TestCases
+            {
+                get
+                {
+                    yield return new TestCaseData(DataSourceRepository.GetData("CommonChildTestDataSource01.txt"))
+                                                                      .Returns(1618);
+                }
+            }
+        }
     }
 }

@@ -3,8 +3,20 @@ using System.Linq;
 
 namespace HackerRank
 {
+    /// <summary>
+    /// This class contains problems under the strings section.
+    /// The names of the methods are capitalized, and parameters are unchanged.
+    /// https://www.hackerrank.com/interview/interview-preparation-kit/strings/challenges
+    /// </summary>
     public static class StringManipulation
     {
+        /// <summary>
+        /// https://www.hackerrank.com/challenges/alternating-characters/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=strings
+        /// </summary>
+        /// <param name="s">A <c>string</c>.</param>
+        /// <returns>
+        /// The minimum number of deletions required as an <c>int</c>.
+        /// </returns>
         public static int AlternatingCharacters(string s)
         {
             var deleteCount = 0;
@@ -18,10 +30,50 @@ namespace HackerRank
             return deleteCount;
         }
 
+        /// <summary>
+        /// This method is an implementation of <c>AlternatingCharacters</c> using LINQ.
+        /// https://www.hackerrank.com/challenges/alternating-characters/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=strings
+        /// </summary>
+        /// <param name="s">A <c>string</c>.</param>
+        /// <returns>
+        /// The minimum number of deletions required as an <c>int</c>.
+        /// </returns>
         public static int AlternatingCharactersLinq(string s)
             => s.Where((letter, index) => index + 1 < s.Length && letter == s[index + 1])
                 .Count();
 
+        /// <summary>
+        /// https://www.hackerrank.com/challenges/common-child/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=strings
+        /// </summary>
+        /// <param name="s1">A <c>string</c>.</param>
+        /// <param name="s2">A <c>string</c>.</param>
+        /// <returns>
+        /// The length of the longest child <c>string</c> as an <c>int</c>.
+        /// </returns>
+        public static int CommonChild(string s1, string s2)
+        {
+            var matrix = new int[s1.Length + 1, s2.Length + 1];
+            for (var i = 0; i < s1.Length; i++)
+            {
+                for (var j = 0; j < s2.Length; j++)
+                {
+                    var matrixI = i + 1;
+                    var matrixJ = j + 1;
+                    matrix[matrixI, matrixJ] = s1[i] == s2[j] ?
+                                                   matrix[matrixI - 1, matrixJ - 1] + 1 :
+                                                   Math.Max(matrix[matrixI - 1, matrixJ], matrix[matrixI, matrixJ - 1]);
+                }
+            }
+            return matrix[s1.Length, s2.Length];
+        }
+
+        /// <summary>
+        /// https://www.hackerrank.com/challenges/sherlock-and-valid-string/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=strings
+        /// </summary>
+        /// <param name="s">A <c>string</c>.</param>
+        /// <returns>
+        /// The the validity of <c>s</c> as a <c>string</c>.
+        /// </returns>
         public static string IsValid(string s)
         {
             const string goodResult = "YES";
@@ -46,16 +98,41 @@ namespace HackerRank
             return badResult;
         }
 
+        /// <summary>
+        /// https://www.hackerrank.com/challenges/ctci-making-anagrams/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=strings
+        /// </summary>
+        /// <param name="a">A <c>string</c>.</param>
+        /// <param name="b">A <c>string</c>.</param>
+        /// <returns>
+        /// The the number of characters that must be deleted to make <c>a</c> and <c>b</c> anagrams as an <c>int</c>.
+        /// </returns>
         public static int MakeAnagram(string a, string b)
             => a.Concat(b).Distinct()
                           .Select(letter => Math.Abs(a.Count(c => c == letter) - b.Count(c => c == letter)))
                           .Sum();
 
+        /// <summary>
+        /// This is the submitted version.
+        /// https://www.hackerrank.com/challenges/ctci-making-anagrams/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=strings
+        /// </summary>
+        /// <param name="a">A <c>string</c>.</param>
+        /// <param name="b">A <c>string</c>.</param>
+        /// <returns>
+        /// The the number of characters that must be deleted to make <c>a</c> and <c>b</c> anagrams as an <c>int</c>.
+        /// </returns>
         public static int MakeAnagramOnline(string a, string b)
             => string.Concat(a, b).Distinct()
                                   .Select(letter => Math.Abs(a.Count(c => c == letter) - b.Count(c => c == letter)))
                                   .Sum();
 
+        /// <summary>
+        /// https://www.hackerrank.com/challenges/special-palindrome-again/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=strings
+        /// </summary>
+        /// <param name="n">An <c>int</c> representing the length of <c>s</c>.</param>
+        /// <param name="s">A <c>string</c>.</param>
+        /// <returns>
+        /// The count of special substrings as a <c>long</c>.
+        /// </returns>
         public static long SubstrCount(int n, string s)
         {
             long total = n;
@@ -84,6 +161,15 @@ namespace HackerRank
             return total;
         }
 
+        /// <summary>
+        /// This method is an implementation of <c>SubstrCount</c> using LINQ.
+        /// https://www.hackerrank.com/challenges/special-palindrome-again/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=strings
+        /// </summary>
+        /// <param name="n">An <c>int</c> representing the length of <c>s</c>.</param>
+        /// <param name="s">A <c>string</c>.</param>
+        /// <returns>
+        /// The count of special substrings as a <c>long</c>.
+        /// </returns>
         public static long SubstrCountLinq(int n, string s)
         {
             var subStrings = Enumerable.Range(1, n)

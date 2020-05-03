@@ -4,8 +4,21 @@ using System.Linq;
 
 namespace HackerRank
 {
+    /// <summary>
+    /// This class contains problems under the arrays section.
+    /// The names of the methods are capitalized, and parameters are unchanged.
+    /// https://www.hackerrank.com/interview/interview-preparation-kit/arrays/challenges
+    /// </summary>
     public static class Arrays
     {
+        /// <summary>
+        /// https://www.hackerrank.com/challenges/crush/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
+        /// </summary>
+        /// <param name="n">An <c>int</c> representing the number of elements in <c>queries</c>.</param>
+        /// <param name="queries">An <c>array</c> of <c>array</c> of <c>int</c> representing the queries to be processed.</param>
+        /// <returns>
+        /// The highest value after processing <c>queries</c> as a <c>long</c>.
+        /// </returns>
         public static long ArrayManipulation(int n, int[][] queries)
         {
             var array = new long[n];
@@ -24,6 +37,15 @@ namespace HackerRank
             return max;
         }
 
+        /// <summary>
+        /// This is the submitted version.
+        /// https://www.hackerrank.com/challenges/crush/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
+        /// </summary>
+        /// <param name="n">An <c>int</c> representing the number of elements in <c>queries</c>.</param>
+        /// <param name="queries">An <c>array</c> of <c>array</c> of <c>int</c> representing the queries to be processed.</param>
+        /// <returns>
+        /// The highest value after processing <c>queries</c> as a <c>long</c>.
+        /// </returns>
         public static long ArrayManipulationOnline(int n, int[][] queries)
         {
             var numbers = new long[n + 1];
@@ -51,6 +73,13 @@ namespace HackerRank
             return max;
         }
 
+        /// <summary>
+        /// https://www.hackerrank.com/challenges/2d-array/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
+        /// </summary>
+        /// <param name="arr">An <c>array</c> of <c>array</c> of <c>int</c>.</param>
+        /// <returns>
+        /// The highest value after processing the hour glass sums as an <c>int</c>.
+        /// </returns>
         public static int HourglassSum(int[][] arr)
         {
             var sum = int.MinValue;
@@ -58,7 +87,13 @@ namespace HackerRank
             {
                 for (var j = 1; j < arr[0].Length - 1; j++)
                 {
-                    var tempSum = arr[i - 1][j - 1] + arr[i - 1][j] + arr[i - 1][j + 1] + arr[i][j] + arr[i + 1][j - 1] + arr[i + 1][j] + arr[i + 1][j + 1];
+                    var tempSum = arr[i - 1][j - 1] +
+                                  arr[i - 1][j] +
+                                  arr[i - 1][j + 1] +
+                                  arr[i][j] +
+                                  arr[i + 1][j - 1] +
+                                  arr[i + 1][j] +
+                                  arr[i + 1][j + 1];
                     if (tempSum > sum)
                     {
                         sum = tempSum;
@@ -68,6 +103,13 @@ namespace HackerRank
             return sum;
         }
 
+        /// <summary>
+        /// https://www.hackerrank.com/challenges/new-year-chaos/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
+        /// </summary>
+        /// <param name="q">An <c>array</c> of <c>int</c> representing the final state of the queue.</param>
+        /// <returns>
+        /// The minimum number of bribes needed to get the queue into its final state as an <c>int</c>.
+        /// </returns>
         public static int MinimumBribes(int[] q)
         {
             var totalBribes = 0;
@@ -100,6 +142,15 @@ namespace HackerRank
             return isTooChaotic ? -1 : totalBribes;
         }
 
+        /// <summary>
+        /// This is the submitted version using <c>Console.WriteLine</c>.
+        /// https://www.hackerrank.com/challenges/new-year-chaos/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
+        /// </summary>
+        /// <param name="q">An <c>array</c> of <c>int</c> representing the final state of the queue.</param>
+        /// <returns>
+        /// The return is <c>void</c>, but it uses <c>Console.WriteLine</c>
+        /// to print the minimum number of bribes needed to get the queue into its final state.
+        /// </returns>
         public static void MinimumBribesOnline(int[] q)
         {
             var totalBribes = 0;
@@ -139,6 +190,13 @@ namespace HackerRank
             }
         }
 
+        /// <summary>
+        /// https://www.hackerrank.com/challenges/minimum-swaps-2/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
+        /// </summary>
+        /// <param name="arr">An unordered <c>array</c> of <c>int</c>.</param>
+        /// <returns>
+        /// The minimum number of swaps needed to order <c>arr</c> as an <c>int</c>.
+        /// </returns>
         public static int MinimumSwaps(int[] arr)
         {
             var swaps = 0;
@@ -163,6 +221,14 @@ namespace HackerRank
             return swaps;
         }
 
+        /// <summary>
+        /// https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
+        /// </summary>
+        /// <param name="a">An <c>array</c> of <c>int</c>.</param>
+        /// <param name="d">An <c>int</c> representing the number of rotations.</param>
+        /// <returns>
+        /// The final state of <c>a</c> as an <c>array</c> of <c>int</c>.
+        /// </returns>
         public static int[] RotLeft(int[] a, int d)
         {
             var updatedA = new List<int>();
@@ -174,6 +240,15 @@ namespace HackerRank
             return updatedA.ToArray();
         }
 
+        /// <summary>
+        /// This method is an implementation of <c>RotLeft</c> using LINQ.
+        /// https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
+        /// </summary>
+        /// <param name="a">An <c>array</c> of <c>int</c>.</param>
+        /// <param name="d">An <c>int</c> representing the number of rotations.</param>
+        /// <returns>
+        /// The final state of <c>a</c> as an <c>array</c> of <c>int</c>.
+        /// </returns>
         public static int[] RotLeftLinq(int[] a, int d)
             => a.Skip(d)
                 .Concat(a.Take(d))
