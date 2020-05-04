@@ -53,7 +53,7 @@ namespace HackerRankTests
                 get
                 {
                     yield return new TestCaseData(DataSourceRepository.GetData("SubstrCountTestDataSource01.txt").Select(array => array.Split(' '))
-                                                                                                               .ToArray())
+                                                                                                                 .ToArray())
                                                                       .Returns(true);
                 }
             }

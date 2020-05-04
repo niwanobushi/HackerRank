@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace HackerRank
@@ -253,6 +254,30 @@ namespace HackerRank
         }
 
         /// <summary>
+        /// https://www.hackerrank.com/challenges/day-of-the-programmer/problem
+        /// </summary>
+        /// <param name="year">An <c>int</c> representing the year.</param>
+        /// <returns>
+        /// The full date of Day of the Programmer during the <c>year</c> as a <c>string</c>.
+        /// </returns>
+        public static string DayOfProgrammer(int year)
+        {
+            const string Message1918 = "26.09.1918";
+            const string MessageLeap = "12.09";
+            const string MessageNotLeap = "13.09";
+            if (year == 1918)
+            {
+                return Message1918;
+            }
+            if (year < 1918 && year % 4 == 0 ||
+                year > 1918 && (year % 400 == 0 || year % 4 == 0 && year % 100 != 0))
+            {
+                return $"{MessageLeap}.{year}";
+            }
+            return $"{MessageNotLeap}.{year}";
+        }
+
+        /// <summary>
         /// https://www.hackerrank.com/challenges/divisible-sum-pairs/problem
         /// </summary>
         /// <param name="n">An <c>int</c> representing the length of <c>ar</c>.</param>
@@ -366,17 +391,17 @@ namespace HackerRank
         /// </returns>
         public static string Kangaroo(int x1, int v1, int x2, int v2)
         {
-            const string goodResult = "YES";
-            const string badResult = "NO";
+            const string GoodResult = "YES";
+            const string BadResult = "NO";
             if (v1 < v2)
             {
-                return badResult;
+                return BadResult;
             }
             while (x1 <= x2)
             {
                 if (x1 == x2)
                 {
-                    return goodResult;
+                    return GoodResult;
                 }
                 else
                 {
@@ -384,7 +409,7 @@ namespace HackerRank
                     x2 += v2;
                 }
             }
-            return badResult;
+            return BadResult;
         }
 
         /// <summary>
@@ -400,14 +425,28 @@ namespace HackerRank
         /// </returns>
         public static string KangarooMath(int x1, int v1, int x2, int v2)
         {
-            const string goodResult = "YES";
-            const string badResult = "NO";
+            const string GoodResult = "YES";
+            const string BadResult = "NO";
             if (v1 < v2 || x1 != x2 && v2 - v1 == 0)
             {
-                return badResult;
+                return BadResult;
             }
-            return x1 == x2 || (x2 - x1) % (v1 - v2) == 0 ? goodResult : badResult;
+            return x1 == x2 || (x2 - x1) % (v1 - v2) == 0 ? GoodResult : BadResult;
         }
+
+        /// <summary>
+        /// https://www.hackerrank.com/challenges/migratory-birds/problem
+        /// </summary>
+        /// <param name="arr">A <c>List</c> of <c>int</c> representing the types of birds sighted.</param>
+        /// <returns>
+        /// The type of the most common bird as an <c>int</c>.
+        /// </returns>
+        public static int MigratoryBirds(List<int> arr)
+            => arr.Distinct()
+                  .GroupBy(bird1 => arr.Count(bird2 => bird1 == bird2))
+                  .OrderByDescending(group => group.Key)
+                  .First()
+                  .Min();
 
         /// <summary>
         /// https://www.hackerrank.com/challenges/plus-minus/problem

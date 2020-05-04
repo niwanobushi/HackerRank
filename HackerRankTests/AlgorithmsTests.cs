@@ -1,5 +1,6 @@
 ﻿using HackerRank;
 using NUnit.Framework;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -72,8 +73,18 @@ namespace HackerRankTests
             => Algorithms.CountApplesAndOranges(number1, number2, number3, number4, numbers1, numbers2);
 
         [Test]
+        [TestCase(1984, ExpectedResult = "12.09.1984")]
+        [TestCase(2017, ExpectedResult = "13.09.2017")]
+        [TestCase(2016, ExpectedResult = "12.09.2016")]
+        [TestCase(1800, ExpectedResult = "12.09.1800")]
+        public string DayOfProgrammerTest(int number)
+            => Algorithms.DayOfProgrammer(number);
+
+        [Test]
         [TestCase(5, 5, new int[] { 1, 2, 3, 4, 5, 6 }, ExpectedResult = 3)]
         [TestCase(6, 3, new int[] { 1, 3, 2, 6, 1, 2 }, ExpectedResult = 5)]
+        [TestCase(5, 2, new int[] { 5, 9, 10, 7, 4 }, ExpectedResult = 4)]
+        [TestCase(2, 2, new int[] { 8, 10 }, ExpectedResult = 1)]
         public int DivisibleSumPairsTest(int number1, int number2, int[] numbers)
             => Algorithms.DivisibleSumPairs(number1, number2, numbers);
 
@@ -112,6 +123,15 @@ namespace HackerRankTests
 
         [Test]
         [DefaultFloatingPointTolerance(6)]
+        [TestCase(new int[] { 1, 1, 2, 2, 3 }, ExpectedResult = 1)]
+        [TestCase(new int[] { 1, 4, 4, 4, 5, 3 }, ExpectedResult = 4)]
+        [TestCase(new int[] { 1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4 }, ExpectedResult = 3)]
+        [TestCaseSource(typeof(MigratoryBirdsTestData), "TestCases")]
+        public int MigratoryBirdsTest(int[] numbers)
+            => Algorithms.MigratoryBirds(numbers.ToList());
+
+        [Test]
+        [DefaultFloatingPointTolerance(6)]
         [TestCase(new int[] { 1, 1, 0, -1, -1 }, ExpectedResult = new float[] { 0.400000F, 0.400000F, 0.200000F })]
         [TestCase(new int[] { -4, 3, -9, 0, 4, 1 }, ExpectedResult = new float[] { 0.500000F, 0.333333F, 0.166667F })]
         [TestCase(new int[] { 1, 2, 3, -1, -2, -3, 0, 0 }, ExpectedResult = new float[] { 0.375000F, 0.375000F, 0.250000F })]
@@ -141,5 +161,21 @@ namespace HackerRankTests
         public string TimeConversionTest(string text)
             => Algorithms.TimeConversion(text);
 
+        // data sources
+
+        public class MigratoryBirdsTestData
+        {
+            public static IEnumerable TestCases
+            {
+                get
+                {
+                    yield return new TestCaseData(DataSourceRepository.GetData("MigratoryBirdsTestDataSource01.txt")
+                                                                      .SelectMany(array => array.Split(' ')
+                                                                                                .Select(text => int.Parse(text)))
+                                                                      .ToArray())
+                                                                      .Returns(3);
+                }
+            }
+        }
     }
 }

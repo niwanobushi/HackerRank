@@ -76,11 +76,11 @@ namespace HackerRank
         /// </returns>
         public static string IsValid(string s)
         {
-            const string goodResult = "YES";
-            const string badResult = "NO";
+            const string GoodResult = "YES";
+            const string BadResult = "NO";
             if (s.Length <= 3)
             {
-                return goodResult;
+                return GoodResult;
             }
             var letters = s.Distinct()
                            .Select(letter1 => s.Count(letter2 => letter1 == letter2))
@@ -89,13 +89,13 @@ namespace HackerRank
             var min = letters.First();
             if (min == max)
             {
-                return goodResult;
+                return GoodResult;
             }
             if (max - min == 1 && max > letters.ElementAt(letters.Count() - 2) || min == 1 && letters.ElementAt(1) == max)
             {
-                return goodResult;
+                return GoodResult;
             }
-            return badResult;
+            return BadResult;
         }
 
         /// <summary>
