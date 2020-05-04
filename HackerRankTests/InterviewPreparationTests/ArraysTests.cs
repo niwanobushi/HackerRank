@@ -1,8 +1,8 @@
-﻿using HackerRank;
+﻿using HackerRank.InterviewPreparation;
 using NUnit.Framework;
 using System.Collections;
 
-namespace HackerRankTests
+namespace HackerRankTests.InterviewPreparationTests
 {
     class ArraysTests
     {

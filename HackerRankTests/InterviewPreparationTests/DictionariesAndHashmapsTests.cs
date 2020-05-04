@@ -1,9 +1,10 @@
-﻿using HackerRank;
+﻿using HackerRank.InterviewPreparation;
+using HackerRankTests.Repositories;
 using NUnit.Framework;
 using System.Collections;
 using System.Linq;
 
-namespace HackerRankTests
+namespace HackerRankTests.InterviewPreparationTests
 {
     class DictionariesAndHashmapsTests
     {

@@ -1,7 +1,7 @@
-using HackerRank;
+using HackerRank.InterviewPreparation;
 using NUnit.Framework;
 
-namespace HackerRankTests
+namespace HackerRankTests.InterviewPreparationTests
 {
     class WarmUpChallengesTests
     {
