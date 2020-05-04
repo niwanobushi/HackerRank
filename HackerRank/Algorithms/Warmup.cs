@@ -14,7 +14,7 @@ namespace HackerRank.Algorithms
         /// <summary>
         /// https://www.hackerrank.com/challenges/a-very-big-sum/problem
         /// </summary>
-        /// <param name="ar">An <c>array</c> of <c>long</c>.</param>
+        /// <param name="ar">An <c>Array</c> of <c>long</c>.</param>
         /// <returns>
         /// The sum of the elements in <c>ar</c> as a <c>long</c>.
         /// </returns>
@@ -32,7 +32,7 @@ namespace HackerRank.Algorithms
         /// This method is an implementation of <c>AVeryBigSum</c> using LINQ.
         /// https://www.hackerrank.com/challenges/a-very-big-sum/problem
         /// </summary>
-        /// <param name="ar">An <c>array</c> of <c>long</c>.</param>
+        /// <param name="ar">An <c>Array</c> of <c>long</c>.</param>
         /// <returns>
         /// The sum of the elements in <c>ar</c> as a <c>long</c>.
         /// </returns>
@@ -42,7 +42,7 @@ namespace HackerRank.Algorithms
         /// <summary>
         /// https://www.hackerrank.com/challenges/birthday-cake-candles/problem
         /// </summary>
-        /// <param name="ar">An <c>array</c> of <c>int</c>.</param>
+        /// <param name="ar">An <c>Array</c> of <c>int</c>.</param>
         /// <returns>
         /// The count of the highest elements in <c>ar</c> as an <c>int</c>.
         /// </returns>
@@ -69,7 +69,7 @@ namespace HackerRank.Algorithms
         /// This method is an implementation of <c>BirthdayCakeCandles</c> using LINQ.
         /// https://www.hackerrank.com/challenges/birthday-cake-candles/problem
         /// </summary>
-        /// <param name="ar">An <c>array</c> of <c>int</c>.</param>
+        /// <param name="ar">An <c>Array</c> of <c>int</c>.</param>
         /// <returns>
         /// The count of the highest elements in <c>ar</c> as an <c>int</c>.
         /// </returns>
@@ -102,11 +102,60 @@ namespace HackerRank.Algorithms
         }
 
         /// <summary>
+        /// https://www.hackerrank.com/challenges/diagonal-difference/problem
+        /// </summary>
+        /// <param name="arr">A <c>List</c> of <c>List</c> of <c>int</c> representing a matrix.</param>
+        /// <returns>
+        /// The absolute difference between the sums of the matrix's two diagonals as an <c>int</c> .
+        /// </returns>
+        public static int DiagonalDifference(List<List<int>> arr)
+        {
+            var sum = 0;
+            for (var i = 0; i < arr.Count(); i++)
+            {
+                sum += arr[i][i] - arr[i][arr.Count() - i - 1];
+            }
+            return Math.Abs(sum);
+        }
+
+        /// <summary>
+        /// https://www.hackerrank.com/challenges/mini-max-sum/problem
+        /// </summary>
+        /// <param name="arr">An <c>Array</c> of <c>int</c>.</param>
+        /// <returns>
+        /// The minimum and maximum sums of 4 elements in <c>arr</c> as an <c>Array</c> of <c>int</c> .
+        /// </returns>
+        public static long[] MiniMaxSum(int[] arr)
+        {
+            Array.Sort(arr);
+            return new long[]
+            {
+                arr.Take(4).Select(number => (long)number).Sum(),
+                arr.Skip(1).Select(number => (long)number).Sum()
+            };
+        }
+
+        /// <summary>
+        /// This is the submitted version using <c>Console.WriteLine</c>.
+        /// https://www.hackerrank.com/challenges/mini-max-sum/problem
+        /// </summary>
+        /// <param name="arr">An <c>Array</c> of <c>int</c>.</param>
+        /// <returns>
+        /// The minimum and maximum sums of 4 elements in <c>arr</c> as an <c>Array</c> of <c>int</c> .
+        /// </returns>
+        public static void MiniMaxSumOnline(int[] arr)
+        {
+            Array.Sort(arr);
+            Console.WriteLine($"{arr.Take(4).Select(number => (long)number).Sum()} {arr.Skip(1).Select(number => (long)number).Sum()}");
+        }
+
+
+        /// <summary>
         /// https://www.hackerrank.com/challenges/plus-minus/problem
         /// </summary>
-        /// <param name="arr">An <c>array</c> of <c>int</c>.</param>
+        /// <param name="arr">An <c>Array</c> of <c>int</c>.</param>
         /// <returns>
-        /// The fractions of positive numbers, negative numbers and zeroes as an <c>array</c> of <c>float</c>.
+        /// The fractions of positive numbers, negative numbers and zeroes as an <c>Array</c> of <c>float</c>.
         /// </returns>
         public static float[] PlusMinus(int[] arr)
         {
@@ -135,7 +184,7 @@ namespace HackerRank.Algorithms
         /// This is the submitted version using <c>Console.WriteLine</c>.
         /// https://www.hackerrank.com/challenges/plus-minus/problem
         /// </summary>
-        /// <param name="arr">An <c>array</c> of <c>int</c>.</param>
+        /// <param name="arr">An <c>Array</c> of <c>int</c>.</param>
         /// <returns>
         /// The return is <c>void</c>, but it uses <c>Console.WriteLine</c>
         /// to print the fractions of positive numbers, negative numbers and zeroes.
@@ -169,7 +218,7 @@ namespace HackerRank.Algorithms
         /// https://www.hackerrank.com/challenges/simple-array-sum/problem
         /// </summary>
         /// <param name="n">An <c>int</c> representint the size of <c>arr</c>.</param>
-        /// <param name="arr">An <c>array</c> of <c>int</c>.</param>
+        /// <param name="arr">An <c>Array</c> of <c>int</c>.</param>
         /// <returns>
         /// The sum of the elements in <c>arr</c> as an <c>int</c>.
         /// </returns>
@@ -188,7 +237,7 @@ namespace HackerRank.Algorithms
         /// https://www.hackerrank.com/challenges/simple-array-sum/problem
         /// </summary>
         /// <param name="n">An <c>int</c> representint the size of <c>arr</c>.</param>
-        /// <param name="arr">An <c>array</c> of <c>int</c>.</param>
+        /// <param name="arr">An <c>Array</c> of <c>int</c>.</param>
         /// <returns>
         /// The sum of the elements in <c>arr</c> as an <c>int</c>.
         /// </returns>
@@ -205,6 +254,22 @@ namespace HackerRank.Algorithms
         /// </returns>
         public static int SolveMeFirst(int a, int b)
             => a + b;
+
+        /// <summary>
+        /// https://www.hackerrank.com/challenges/staircase/problem
+        /// </summary>
+        /// <param name="s">An <c>int</c> representing the size of the staircase.</param>
+        /// <returns>
+        /// The return is <c>void</c>, but it uses <c>Console.WriteLine</c>
+        /// to print the statircase.
+        /// </returns>
+        public static void Staircase(int n)
+        {
+            for (var i = 1; i <= n; i++)
+            {
+                Console.WriteLine($"{new string(' ', n - i)}{new string('#', i)}");
+            }
+        }
 
         /// <summary>
         /// https://www.hackerrank.com/challenges/time-conversion/problem

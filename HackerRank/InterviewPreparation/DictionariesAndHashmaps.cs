@@ -14,8 +14,8 @@ namespace HackerRank.InterviewPreparation
         /// <summary>
         /// https://www.hackerrank.com/challenges/ctci-ransom-note/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=dictionaries-hashmaps
         /// </summary>
-        /// <param name="magazine">An <c>array</c> of <c>string</c> representing a magazine.</param>
-        /// <param name="note">An <c>array</c> of <c>string</c> representing a note to created.</param>
+        /// <param name="magazine">An <c>Array</c> of <c>string</c> representing a magazine.</param>
+        /// <param name="note">An <c>Array</c> of <c>string</c> representing a note to created.</param>
         /// <returns>
         /// The possibility of creating the note using the magazine as a <c>bool</c>.
         /// </returns>
@@ -42,8 +42,8 @@ namespace HackerRank.InterviewPreparation
         /// This is the submitted version using <c>Console.WriteLine</c>.
         /// https://www.hackerrank.com/challenges/ctci-ransom-note/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=dictionaries-hashmaps
         /// </summary>
-        /// <param name="magazine">An <c>array</c> of <c>string</c> representing a magazine.</param>
-        /// <param name="note">An <c>array</c> of <c>string</c> representing a note to created.</param>
+        /// <param name="magazine">An <c>Array</c> of <c>string</c> representing a magazine.</param>
+        /// <param name="note">An <c>Array</c> of <c>string</c> representing a note to created.</param>
         /// <returns>
         /// The return is <c>void</c>, but it uses <c>Console.WriteLine</c>
         /// to print the possibility of creating the note using the magazine.

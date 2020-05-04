@@ -45,7 +45,7 @@ namespace HackerRank.InterviewPreparation
         /// <summary>
         /// https://www.hackerrank.com/challenges/jumping-on-the-clouds/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup
         /// </summary>
-        /// <param name="c">An <c>array</c> of <c>int</c> representing the clouds and its types.</param>
+        /// <param name="c">An <c>Array</c> of <c>int</c> representing the clouds and its types.</param>
         /// <returns>
         /// The number of jumps needed as an <c>int</c>.
         /// </returns>
@@ -87,7 +87,7 @@ namespace HackerRank.InterviewPreparation
         /// https://www.hackerrank.com/challenges/sock-merchant/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup
         /// </summary>
         /// <param name="n">An <c>int</c> representing the number of socks in <c>ar</c>.</param>
-        /// <param name="ar">An <c>array</c> of <c>int</c> representing socks and its colors.</param>
+        /// <param name="ar">An <c>Array</c> of <c>int</c> representing socks and its colors.</param>
         /// <returns>
         /// The total number of matching pairs of socks as an <c>int</c>.
         /// </returns>
@@ -113,7 +113,7 @@ namespace HackerRank.InterviewPreparation
         /// https://www.hackerrank.com/challenges/sock-merchant/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup
         /// </summary>
         /// <param name="n">An <c>int</c> representing the number of socks in <c>ar</c>.</param>
-        /// <param name="ar">An <c>array</c> of <c>int</c> representing socks and its colors.</param>
+        /// <param name="ar">An <c>Array</c> of <c>int</c> representing socks and its colors.</param>
         /// <returns>
         /// The total number of matching pairs of socks as an <c>int</c>.
         /// </returns>

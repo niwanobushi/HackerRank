@@ -15,7 +15,7 @@ namespace HackerRank.InterviewPreparation
         /// https://www.hackerrank.com/challenges/crush/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
         /// </summary>
         /// <param name="n">An <c>int</c> representing the number of elements in <c>queries</c>.</param>
-        /// <param name="queries">An <c>array</c> of <c>array</c> of <c>int</c> representing the queries to be processed.</param>
+        /// <param name="queries">An <c>Array</c> of <c>Array</c> of <c>int</c> representing the queries to be processed.</param>
         /// <returns>
         /// The highest value after processing <c>queries</c> as a <c>long</c>.
         /// </returns>
@@ -42,7 +42,7 @@ namespace HackerRank.InterviewPreparation
         /// https://www.hackerrank.com/challenges/crush/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
         /// </summary>
         /// <param name="n">An <c>int</c> representing the number of elements in <c>queries</c>.</param>
-        /// <param name="queries">An <c>array</c> of <c>array</c> of <c>int</c> representing the queries to be processed.</param>
+        /// <param name="queries">An <c>Array</c> of <c>Array</c> of <c>int</c> representing the queries to be processed.</param>
         /// <returns>
         /// The highest value after processing <c>queries</c> as a <c>long</c>.
         /// </returns>
@@ -76,7 +76,7 @@ namespace HackerRank.InterviewPreparation
         /// <summary>
         /// https://www.hackerrank.com/challenges/2d-array/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
         /// </summary>
-        /// <param name="arr">An <c>array</c> of <c>array</c> of <c>int</c>.</param>
+        /// <param name="arr">An <c>Array</c> of <c>Array</c> of <c>int</c>.</param>
         /// <returns>
         /// The highest value after processing the hour glass sums as an <c>int</c>.
         /// </returns>
@@ -106,7 +106,7 @@ namespace HackerRank.InterviewPreparation
         /// <summary>
         /// https://www.hackerrank.com/challenges/new-year-chaos/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
         /// </summary>
-        /// <param name="q">An <c>array</c> of <c>int</c> representing the final state of the queue.</param>
+        /// <param name="q">An <c>Array</c> of <c>int</c> representing the final state of the queue.</param>
         /// <returns>
         /// The minimum number of bribes needed to get the queue into its final state as an <c>int</c>.
         /// </returns>
@@ -146,7 +146,7 @@ namespace HackerRank.InterviewPreparation
         /// This is the submitted version using <c>Console.WriteLine</c>.
         /// https://www.hackerrank.com/challenges/new-year-chaos/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
         /// </summary>
-        /// <param name="q">An <c>array</c> of <c>int</c> representing the final state of the queue.</param>
+        /// <param name="q">An <c>Array</c> of <c>int</c> representing the final state of the queue.</param>
         /// <returns>
         /// The return is <c>void</c>, but it uses <c>Console.WriteLine</c>
         /// to print the minimum number of bribes needed to get the queue into its final state.
@@ -193,7 +193,7 @@ namespace HackerRank.InterviewPreparation
         /// <summary>
         /// https://www.hackerrank.com/challenges/minimum-swaps-2/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
         /// </summary>
-        /// <param name="arr">An unordered <c>array</c> of <c>int</c>.</param>
+        /// <param name="arr">An unordered <c>Array</c> of <c>int</c>.</param>
         /// <returns>
         /// The minimum number of swaps needed to order <c>arr</c> as an <c>int</c>.
         /// </returns>
@@ -224,10 +224,10 @@ namespace HackerRank.InterviewPreparation
         /// <summary>
         /// https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
         /// </summary>
-        /// <param name="a">An <c>array</c> of <c>int</c>.</param>
+        /// <param name="a">An <c>Array</c> of <c>int</c>.</param>
         /// <param name="d">An <c>int</c> representing the number of rotations.</param>
         /// <returns>
-        /// The final state of <c>a</c> as an <c>array</c> of <c>int</c>.
+        /// The final state of <c>a</c> as an <c>Array</c> of <c>int</c>.
         /// </returns>
         public static int[] RotLeft(int[] a, int d)
         {
@@ -244,10 +244,10 @@ namespace HackerRank.InterviewPreparation
         /// This method is an implementation of <c>RotLeft</c> using LINQ.
         /// https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
         /// </summary>
-        /// <param name="a">An <c>array</c> of <c>int</c>.</param>
+        /// <param name="a">An <c>Array</c> of <c>int</c>.</param>
         /// <param name="d">An <c>int</c> representing the number of rotations.</param>
         /// <returns>
-        /// The final state of <c>a</c> as an <c>array</c> of <c>int</c>.
+        /// The final state of <c>a</c> as an <c>Array</c> of <c>int</c>.
         /// </returns>
         public static int[] RotLeftLinq(int[] a, int d)
             => a.Skip(d)

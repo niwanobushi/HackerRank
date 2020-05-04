@@ -64,9 +64,9 @@ namespace HackerRank.Algorithms
         /// <summary>
         /// https://www.hackerrank.com/challenges/breaking-best-and-worst-records/problem
         /// </summary>
-        /// <param name="scores">An <c>array</c> of <c>int</c> representing the score in each game.</param>
+        /// <param name="scores">An <c>Array</c> of <c>int</c> representing the score in each game.</param>
         /// <returns>
-        /// The number of times the lowest score and highest score records were broken as an <c>array</c> of <c>int</c>.
+        /// The number of times the lowest score and highest score records were broken as an <c>Array</c> of <c>int</c>.
         /// </returns>
         public static int[] BreakingRecords(int[] scores)
         {
@@ -98,10 +98,10 @@ namespace HackerRank.Algorithms
         /// <param name="t">An <c>int</c> representing where the house ends.</param>
         /// <param name="a">An <c>int</c> representing where the apple tree is.</param>
         /// <param name="b">An <c>int</c> representing where the orange tree is.</param>
-        /// <param name="apples">An <c>array</c> of <c>int</c> representing where the apples fell.</param>
-        /// <param name="oranges">An <c>array</c> of <c>int</c> representing where the oranges fell.</param>
+        /// <param name="apples">An <c>Array</c> of <c>int</c> representing where the apples fell.</param>
+        /// <param name="oranges">An <c>Array</c> of <c>int</c> representing where the oranges fell.</param>
         /// <returns>
-        /// The count of apples and oranges that fell on the house as an <c>array</c> of <c>int</c>.
+        /// The count of apples and oranges that fell on the house as an <c>Array</c> of <c>int</c>.
         /// </returns>
         public static int[] CountApplesAndOranges(int s, int t, int a, int b, int[] apples, int[] oranges)
         {
@@ -130,10 +130,10 @@ namespace HackerRank.Algorithms
         /// <param name="t">An <c>int</c> representing where the house ends.</param>
         /// <param name="a">An <c>int</c> representing where the apple tree is.</param>
         /// <param name="b">An <c>int</c> representing where the orange tree is.</param>
-        /// <param name="apples">An <c>array</c> of <c>int</c> representing where the apples fell.</param>
-        /// <param name="oranges">An <c>array</c> of <c>int</c> representing where the oranges fell.</param>
+        /// <param name="apples">An <c>Array</c> of <c>int</c> representing where the apples fell.</param>
+        /// <param name="oranges">An <c>Array</c> of <c>int</c> representing where the oranges fell.</param>
         /// <returns>
-        /// The count of apples and oranges that fell on the house as an <c>array</c> of <c>int</c>.
+        /// The count of apples and oranges that fell on the house as an <c>Array</c> of <c>int</c>.
         /// </returns>
         public static int[] CountApplesAndOrangesLinq(int s, int t, int a, int b, int[] apples, int[] oranges)
             => new int[]
@@ -150,8 +150,8 @@ namespace HackerRank.Algorithms
         /// <param name="t">An <c>int</c> representing where the house ends.</param>
         /// <param name="a">An <c>int</c> representing where the apple tree is.</param>
         /// <param name="b">An <c>int</c> representing where the orange tree is.</param>
-        /// <param name="apples">An <c>array</c> of <c>int</c> representing where the apples fell.</param>
-        /// <param name="oranges">An <c>array</c> of <c>int</c> representing where the oranges fell.</param>
+        /// <param name="apples">An <c>Array</c> of <c>int</c> representing where the apples fell.</param>
+        /// <param name="oranges">An <c>Array</c> of <c>int</c> representing where the oranges fell.</param>
         /// <returns>
         /// The return is <c>void</c>, but it uses <c>Console.WriteLine</c>
         /// to print the count of apples and oranges that fell on the house.
@@ -191,7 +191,7 @@ namespace HackerRank.Algorithms
         /// </summary>
         /// <param name="n">An <c>int</c> representing the length of <c>ar</c>.</param>
         /// <param name="k">An <c>int</c>.</param>
-        /// <param name="ar">An <c>array</c> of <c>int</c>.</param>
+        /// <param name="ar">An <c>Array</c> of <c>int</c>.</param>
         /// <returns>
         /// The count of numbers that match the criteria as an <c>int</c>.
         /// </returns>

@@ -56,10 +56,10 @@ namespace System
         }
 
         /// <summary>
-        /// This method populates an <c>array</c> of <c>T</c>.
+        /// This method populates an <c>Array</c> of <c>T</c>.
         /// </summary>
-        /// <param name="array">An <c>array</c> of <c>T</c>.</param>
-        /// <param name="value">The value to be used to populate <c>array</c>.</param>
+        /// <param name="array">An <c>Array</c> of <c>T</c>.</param>
+        /// <param name="value">The value to be used to populate <c>Array</c>.</param>
         /// <returns>
         /// <c>void</c>
         /// </returns>
@@ -72,10 +72,10 @@ namespace System
         }
 
         /// <summary>
-        /// This method populates a 2D <c>array</c> of <c>T</c>.
+        /// This method populates a 2D <c>Array</c> of <c>T</c>.
         /// </summary>
-        /// <param name="array">An <c>array</c> of <c>T</c>.</param>
-        /// <param name="value">The value to be used to populate <c>array</c>.</param>
+        /// <param name="array">An <c>Array</c> of <c>T</c>.</param>
+        /// <param name="value">The value to be used to populate <c>Array</c>.</param>
         /// <returns>
         /// <c>void</c>
         /// </returns>
