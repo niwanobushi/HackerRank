@@ -18,6 +18,22 @@ namespace HackerRankTests
             => Algorithms.AVeryBigSum(numbers);
 
         [Test]
+        [TestCase(new int[] { 2, 2, 1, 3, 2 }, 4, 2, ExpectedResult = 2)]
+        [TestCase(new int[] { 1, 2, 1, 3, 2 }, 3, 2, ExpectedResult = 2)]
+        [TestCase(new int[] { 1, 1, 1, 1, 1, 1 }, 3, 2, ExpectedResult = 0)]
+        [TestCase(new int[] { 4 }, 4, 1, ExpectedResult = 1)]
+        public long BirthdayLinqTest(int[] numbers, int number1, int number2)
+            => Algorithms.BirthdayLinq(numbers.ToList(), number1, number2);
+
+        [Test]
+        [TestCase(new int[] { 2, 2, 1, 3, 2 }, 4, 2, ExpectedResult = 2)]
+        [TestCase(new int[] { 1, 2, 1, 3, 2 }, 3, 2, ExpectedResult = 2)]
+        [TestCase(new int[] { 1, 1, 1, 1, 1, 1 }, 3, 2, ExpectedResult = 0)]
+        [TestCase(new int[] { 4 }, 4, 1, ExpectedResult = 1)]
+        public long BirthdayTest(int[] numbers, int number1, int number2)
+            => Algorithms.Birthday(numbers.ToList(), number1, number2);
+
+        [Test]
         [TestCase(new int[] { 4, 4, 1, 3 }, ExpectedResult = 2)]
         [TestCase(new int[] { 3, 2, 1, 3 }, ExpectedResult = 2)]
         public long BirthdayCakeCandlesLinqTest(int[] numbers)
@@ -54,6 +70,12 @@ namespace HackerRankTests
         [TestCase(7, 11, 5, 15, new int[] { -2, 2, 1 }, new int[] { 5, -6 }, ExpectedResult = new int[] { 1, 1 })]
         public int[] CountApplesAndOrangesTest(int number1, int number2, int number3, int number4, int[] numbers1, int[] numbers2)
             => Algorithms.CountApplesAndOranges(number1, number2, number3, number4, numbers1, numbers2);
+
+        [Test]
+        [TestCase(5, 5, new int[] { 1, 2, 3, 4, 5, 6 }, ExpectedResult = 3)]
+        [TestCase(6, 3, new int[] { 1, 3, 2, 6, 1, 2 }, ExpectedResult = 5)]
+        public int DivisibleSumPairsTest(int number1, int number2, int[] numbers)
+            => Algorithms.DivisibleSumPairs(number1, number2, numbers);
 
         [Test]
         [TestCase(new int[] { 2, 6 }, new int[] { 24, 36 }, ExpectedResult = 2)]

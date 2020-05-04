@@ -66,6 +66,56 @@ namespace HackerRank
         }
 
         /// <summary>
+        /// https://www.hackerrank.com/challenges/the-birthday-bar/problem
+        /// </summary>
+        /// <param name="s">A <c>List</c> of <c>int</c> representing pieces of chocolates.</param>
+        /// <param name="d">An <c>int</c> representing the birth day.</param>
+        /// <param name="m">An <c>int</c> representing the birth month.</param>
+        /// <returns>
+        /// The total number of ways that the chocolate can be portioned as an <c>int</c>.
+        /// </returns>
+        public static int Birthday(List<int> s, int d, int m)
+        {
+            var count = 0;
+            for (var i = 0; i < s.Count() - m + 1; i++)
+            {
+                var sum = 0;
+                for (var j = 0; j < m; j++)
+                {
+                    sum += s[i + j];
+                }
+                if (sum == d)
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        /// <summary>
+        /// This method is an implementation of <c>Birthday</c> using LINQ.
+        /// https://www.hackerrank.com/challenges/the-birthday-bar/problem
+        /// </summary>
+        /// <param name="s">A <c>List</c> of <c>int</c> representing pieces of chocolates.</param>
+        /// <param name="d">An <c>int</c> representing the birth day.</param>
+        /// <param name="m">An <c>int</c> representing the birth month.</param>
+        /// <returns>
+        /// The total number of ways that the chocolate can be portioned as an <c>int</c>.
+        /// </returns>
+        public static int BirthdayLinq(List<int> s, int d, int m)
+        {
+            var count = 0;
+            for (var i = 0; i < s.Count() - m + 1; i++)
+            {
+                if (s.GetRange(i, m).Sum() == d)
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        /// <summary>
         /// This method is an implementation of <c>BirthdayCakeCandles</c> using LINQ.
         /// https://www.hackerrank.com/challenges/birthday-cake-candles/problem
         /// </summary>
@@ -75,31 +125,6 @@ namespace HackerRank
         /// </returns>
         public static int BirthdayCakeCandlesLinq(int[] ar)
             => ar.Count(item => item == ar.Max());
-
-        /// <summary>
-        /// https://www.hackerrank.com/challenges/compare-the-triplets/problem
-        /// </summary>
-        /// <param name="a">A <c>List</c> of <c>int</c> representing Alice's ratings.</param>
-        /// <param name="a">A <c>List</c> of <c>int</c> representing Bob's ratings.</param>
-        /// <returns>
-        /// The comparison points earned by Alice and Bob as a <c>List</c> of <c>int</c> .
-        /// </returns>
-        public static List<int> CompareTheTriplets(List<int> a, List<int> b)
-        {
-            var result = new List<int> { 0, 0 };
-            for (var i = 0; i < a.Count; i++)
-            {
-                if (a[i] > b[i])
-                {
-                    result[0]++;
-                }
-                else if (a[i] < b[i])
-                {
-                    result[1]++;
-                }
-            }
-            return result;
-        }
 
         /// <summary>
         /// https://www.hackerrank.com/challenges/breaking-best-and-worst-records/problem
@@ -129,6 +154,31 @@ namespace HackerRank
                 }
             }
             return new int[] { higherRecordCount, lowerRecordCount };
+        }
+
+        /// <summary>
+        /// https://www.hackerrank.com/challenges/compare-the-triplets/problem
+        /// </summary>
+        /// <param name="a">A <c>List</c> of <c>int</c> representing Alice's ratings.</param>
+        /// <param name="a">A <c>List</c> of <c>int</c> representing Bob's ratings.</param>
+        /// <returns>
+        /// The comparison points earned by Alice and Bob as a <c>List</c> of <c>int</c> .
+        /// </returns>
+        public static List<int> CompareTheTriplets(List<int> a, List<int> b)
+        {
+            var result = new List<int> { 0, 0 };
+            for (var i = 0; i < a.Count; i++)
+            {
+                if (a[i] > b[i])
+                {
+                    result[0]++;
+                }
+                else if (a[i] < b[i])
+                {
+                    result[1]++;
+                }
+            }
+            return result;
         }
 
         /// <summary>
@@ -200,6 +250,31 @@ namespace HackerRank
         {
             Console.WriteLine(apples.Where(apple => a + apple >= s && a + apple <= t).Count());
             Console.WriteLine(oranges.Where(orange => b + orange <= t && b + orange >= s).Count());
+        }
+
+        /// <summary>
+        /// https://www.hackerrank.com/challenges/divisible-sum-pairs/problem
+        /// </summary>
+        /// <param name="n">An <c>int</c> representing the length of <c>ar</c>.</param>
+        /// <param name="k">An <c>int</c>.</param>
+        /// <param name="ar">An <c>array</c> of <c>int</c>.</param>
+        /// <returns>
+        /// The count of numbers that match the criteria as an <c>int</c>.
+        /// </returns>
+        public static int DivisibleSumPairs(int n, int k, int[] ar)
+        {
+            var count = 0;
+            for (var i = 0; i < ar.Length - 1; i++)
+            {
+                for (var j = i + 1; j < ar.Length; j++)
+                {
+                    if ((ar[i] + ar[j]) % k == 0)
+                    {
+                        count++;
+                    }
+                }
+            }
+            return count;
         }
 
         /// <summary>
