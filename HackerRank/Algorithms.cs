@@ -102,6 +102,36 @@ namespace HackerRank
         }
 
         /// <summary>
+        /// https://www.hackerrank.com/challenges/breaking-best-and-worst-records/problem
+        /// </summary>
+        /// <param name="scores">An <c>array</c> of <c>int</c> representing the score in each game.</param>
+        /// <returns>
+        /// The number of times the lowest score and highest score records were broken as an <c>array</c> of <c>int</c>.
+        /// </returns>
+        public static int[] BreakingRecords(int[] scores)
+        {
+            var lowestScore = scores[0];
+            var highestScore = scores[0];
+            var lowerRecordCount = 0;
+            var higherRecordCount = 0;
+            for (var i = 1; i < scores.Length; i++)
+            {
+                var currentScore = scores[i];
+                if (currentScore < lowestScore)
+                {
+                    lowestScore = currentScore;
+                    lowerRecordCount++;
+                }
+                else if (currentScore > highestScore)
+                {
+                    highestScore = currentScore;
+                    higherRecordCount++;
+                }
+            }
+            return new int[] { higherRecordCount, lowerRecordCount };
+        }
+
+        /// <summary>
         /// https://www.hackerrank.com/challenges/apple-and-orange/problem
         /// </summary>
         /// <param name="s">An <c>int</c> representing where the house starts.</param>
@@ -109,7 +139,7 @@ namespace HackerRank
         /// <param name="a">An <c>int</c> representing where the apple tree is.</param>
         /// <param name="b">An <c>int</c> representing where the orange tree is.</param>
         /// <param name="apples">An <c>array</c> of <c>int</c> representing where the apples fell.</param>
-        /// <param name="oranges"An <c>array</c> of <c>int</c> representing where the oranges fell.</param>
+        /// <param name="oranges">An <c>array</c> of <c>int</c> representing where the oranges fell.</param>
         /// <returns>
         /// The count of apples and oranges that fell on the house as an <c>array</c> of <c>int</c>.
         /// </returns>
@@ -141,7 +171,7 @@ namespace HackerRank
         /// <param name="a">An <c>int</c> representing where the apple tree is.</param>
         /// <param name="b">An <c>int</c> representing where the orange tree is.</param>
         /// <param name="apples">An <c>array</c> of <c>int</c> representing where the apples fell.</param>
-        /// <param name="oranges"An <c>array</c> of <c>int</c> representing where the oranges fell.</param>
+        /// <param name="oranges">An <c>array</c> of <c>int</c> representing where the oranges fell.</param>
         /// <returns>
         /// The count of apples and oranges that fell on the house as an <c>array</c> of <c>int</c>.
         /// </returns>
@@ -161,7 +191,7 @@ namespace HackerRank
         /// <param name="a">An <c>int</c> representing where the apple tree is.</param>
         /// <param name="b">An <c>int</c> representing where the orange tree is.</param>
         /// <param name="apples">An <c>array</c> of <c>int</c> representing where the apples fell.</param>
-        /// <param name="oranges"An <c>array</c> of <c>int</c> representing where the oranges fell.</param>
+        /// <param name="oranges">An <c>array</c> of <c>int</c> representing where the oranges fell.</param>
         /// <returns>
         /// The return is <c>void</c>, but it uses <c>Console.WriteLine</c>
         /// to print the count of apples and oranges that fell on the house.
@@ -175,9 +205,31 @@ namespace HackerRank
         /// <summary>
         /// https://www.hackerrank.com/challenges/grading/problem
         /// </summary>
+        /// <param name="a">A <c>List</c> of <c>int</c>.</param>
+        /// <param name="b">A <c>List</c> of <c>int</c>.</param>
+        /// <returns>
+        /// The count of numbers that match the criteria as an <c>int</c>.
+        /// </returns>
+        public static int GetTotalX(List<int> a, List<int> b)
+        {
+            var result = 0;
+            for (var i = a.First(); i <= b.First(); i++)
+            {
+                if (a.All(number => i % number == 0) &&
+                    b.All(number => number % i == 0))
+                {
+                    result++;
+                }
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// https://www.hackerrank.com/challenges/grading/problem
+        /// </summary>
         /// <param name="grades">A <c>List</c> of <c>int</c> representing grades.</param>
         /// <returns>
-        /// The rounded grades as a <c>List</c> of <c>int</c> .
+        /// The rounded grades as a <c>List</c> of <c>int</c>.
         /// </returns>
         public static List<int> GradingStudents(List<int> grades)
         {
@@ -226,6 +278,61 @@ namespace HackerRank
                          return grade;
                      })
                      .ToList();
+
+        /// <summary>
+        /// https://www.hackerrank.com/challenges/kangaroo/problem
+        /// </summary>
+        /// <param name="x1">An <c>int</c> representing the starting place of the first kangoroo.</param>
+        /// <param name="v1">An <c>int</c> representing the speed of the first kangoroo.</param>
+        /// <param name="x2">An <c>int</c> representing the starting place of the second kangoroo.</param>
+        /// <param name="v2">An <c>int</c> representing the speed of the second kangoroo.</param>
+        /// <returns>
+        /// The result of if it's possible for them to be at the same place at the same time as a <c>string</c> .
+        /// </returns>
+        public static string Kangaroo(int x1, int v1, int x2, int v2)
+        {
+            const string goodResult = "YES";
+            const string badResult = "NO";
+            if (v1 < v2)
+            {
+                return badResult;
+            }
+            while (x1 <= x2)
+            {
+                if (x1 == x2)
+                {
+                    return goodResult;
+                }
+                else
+                {
+                    x1 += v1;
+                    x2 += v2;
+                }
+            }
+            return badResult;
+        }
+
+        /// <summary>
+        /// This method is an implementation of <c>Kangaroo</c> using math.
+        /// https://www.hackerrank.com/challenges/kangaroo/problem
+        /// </summary>
+        /// <param name="x1">An <c>int</c> representing the starting place of the first kangoroo.</param>
+        /// <param name="v1">An <c>int</c> representing the speed of the first kangoroo.</param>
+        /// <param name="x2">An <c>int</c> representing the starting place of the second kangoroo.</param>
+        /// <param name="v2">An <c>int</c> representing the speed of the second kangoroo.</param>
+        /// <returns>
+        /// The result of if it's possible for them to be at the same place at the same time as a <c>string</c> .
+        /// </returns>
+        public static string KangarooMath(int x1, int v1, int x2, int v2)
+        {
+            const string goodResult = "YES";
+            const string badResult = "NO";
+            if (v1 < v2 || x1 != x2 && v2 - v1 == 0)
+            {
+                return badResult;
+            }
+            return x1 == x2 || (x2 - x1) % (v1 - v2) == 0 ? goodResult : badResult;
+        }
 
         /// <summary>
         /// https://www.hackerrank.com/challenges/plus-minus/problem
