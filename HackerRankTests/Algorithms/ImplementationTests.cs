@@ -25,7 +25,17 @@ namespace HackerRankTests.Algorithms
         public long BirthdayTest(int[] numbers, int number1, int number2)
             => Implementation.Birthday(numbers.ToList(), number1, number2);
 
+        [Test]
+        [TestCase(new int[] { 3, 10, 2, 9 }, 1, 12, ExpectedResult = "5")]
+        [TestCase(new int[] { 3, 10, 2, 9 }, 1, 7, ExpectedResult = "Bon Appetit")]
+        public string BonAppetitLinqTest(int[] numbers, int number1, int number2)
+            => Implementation.BonAppetitLinq(numbers.ToList(), number1, number2);
 
+        [Test]
+        [TestCase(new int[] { 3, 10, 2, 9 }, 1, 12, ExpectedResult = "5")]
+        [TestCase(new int[] { 3, 10, 2, 9 }, 1, 7, ExpectedResult = "Bon Appetit")]
+        public string BonAppetitTest(int[] numbers, int number1, int number2)
+            => Implementation.BonAppetit(numbers.ToList(), number1, number2);
 
         [Test]
         [TestCase(new int[] { 12, 24, 10, 24 }, ExpectedResult = new int[] { 1, 1 })]
@@ -33,8 +43,6 @@ namespace HackerRankTests.Algorithms
         [TestCase(new int[] { 3, 4, 21, 36, 10, 28, 35, 5, 24, 42 }, ExpectedResult = new int[] { 4, 0 })]
         public int[] BreakingRecordsTest(int[] numbers)
             => Implementation.BreakingRecords(numbers);
-
-
 
         [Test]
         [TestCase(7, 10, 4, 12, new int[] { 2, 3, -4 }, new int[] { 3, -2, -4 }, ExpectedResult = new int[] { 1, 2 })]
@@ -105,6 +113,13 @@ namespace HackerRankTests.Algorithms
         [TestCaseSource(typeof(MigratoryBirdsTestData), "TestCases")]
         public int MigratoryBirdsTest(int[] numbers)
             => Implementation.MigratoryBirds(numbers.ToList());
+
+        [Test]
+        [TestCase(6, 2, ExpectedResult = 1)]
+        [TestCase(5, 4, ExpectedResult = 0)]
+        [TestCase(6, 5, ExpectedResult = 1)]
+        public int PageCountTest(int number1, int number2)
+            => Implementation.PageCount(number1, number2);
 
         // data sources
 

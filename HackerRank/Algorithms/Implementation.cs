@@ -5,7 +5,7 @@ using System.Linq;
 namespace HackerRank.Algorithms
 {
     /// <summary>
-    /// This class contains problems under the algorithms section.
+    /// This class contains problems under the algorithms implementation section.
     /// The names of the methods are capitalized, and parameters are unchanged.
     /// https://www.hackerrank.com/domains/algorithms?filters%5Bsubdomains%5D%5B%5D=implementation
     /// </summary>
@@ -59,6 +59,80 @@ namespace HackerRank.Algorithms
                 }
             }
             return count;
+        }
+
+        /// <summary>
+        /// https://www.hackerrank.com/challenges/bon-appetit/problem
+        /// </summary>
+        /// <param name="bill">A <c>List</c> of <c>int</c> representing the bill.</param>
+        /// <param name="k">An <c>int</c> representing the zero-based index of the item to be removed from the bill.</param>
+        /// <param name="b">An <c>int</c> representing the contribution to the bill.</param>
+        /// <returns>
+        /// The result as a <c>string</c>.
+        /// </returns>
+        public static string BonAppetit(List<int> bill, int k, int b)
+        {
+            var sum = 0;
+            for (var i = 0; i < bill.Count(); i++)
+            {
+                if (i != k)
+                {
+                    sum += bill[i];
+                }
+            }
+            var splitBill = sum / 2;
+            return splitBill == b ? "Bon Appetit" : (b - splitBill).ToString();
+        }
+
+        /// <summary>
+        /// This method is an implementation of <c>BonAppetit</c> using LINQ.
+        /// https://www.hackerrank.com/challenges/bon-appetit/problem
+        /// </summary>
+        /// <param name="bill">A <c>List</c> of <c>int</c> representing the bill.</param>
+        /// <param name="k">An <c>int</c> representing the zero-based index of the item to be removed from the bill.</param>
+        /// <param name="b">An <c>int</c> representing the contribution to the bill.</param>
+        /// <returns>
+        /// The result as a <c>string</c>.
+        /// </returns>
+        public static string BonAppetitLinq(List<int> bill, int k, int b)
+        {
+            var sum = bill.Take(k)
+                          .Concat(bill.Skip(k + 1))
+                          .Sum();
+            var splitBill = sum / 2;
+            return splitBill == b ? "Bon Appetit" : (b - splitBill).ToString();
+        }
+
+        /// <summary>
+        /// This is the submitted version using <c>Console.WriteLine</c>.
+        /// https://www.hackerrank.com/challenges/bon-appetit/problem
+        /// </summary>
+        /// <param name="bill">A <c>List</c> of <c>int</c> representing the bill.</param>
+        /// <param name="k">An <c>int</c> representing the zero-based index of the item to be removed from the bill.</param>
+        /// <param name="b">An <c>int</c> representing the contribution to the bill.</param>
+        /// <returns>
+        /// The return is <c>void</c>, but it uses <c>Console.WriteLine</c>
+        /// to print the result.
+        /// </returns>
+        public static void BonAppetitOnline(List<int> bill, int k, int b)
+        {
+            var sum = 0;
+            for (var i = 0; i < bill.Count(); i++)
+            {
+                if (i != k)
+                {
+                    sum += bill[i];
+                }
+            }
+            var splitBill = sum / 2;
+            if (splitBill == b)
+            {
+                Console.WriteLine("Bon Appetit");
+            }
+            else
+            {
+                Console.WriteLine(b - splitBill);
+            }
         }
 
         /// <summary>
@@ -356,5 +430,17 @@ namespace HackerRank.Algorithms
                   .OrderByDescending(group => group.Key)
                   .First()
                   .Min();
+
+        /// <summary>
+        /// https://www.hackerrank.com/challenges/drawing-book/problem
+        /// </summary>
+        /// <param name="n">An <c>int</c> representing the number of pages in the book.</param>
+        /// <param name="p">An <c>int</c> representing the page number in the book.</param>
+        /// <returns>
+        /// The minimum number of pages to get to <c>p</c> as an <c>int</c>.
+        /// </returns>
+        public static int PageCount(int n, int p)
+            => Math.Min(p / 2, 
+                        ((n % 2 == 0 ? n + 1 : n) - p) / 2);
     }
 }
