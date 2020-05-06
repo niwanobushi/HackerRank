@@ -376,40 +376,6 @@ namespace HackerRank.Algorithms
         {
             const string GoodResult = "YES";
             const string BadResult = "NO";
-            if (v1 < v2)
-            {
-                return BadResult;
-            }
-            while (x1 <= x2)
-            {
-                if (x1 == x2)
-                {
-                    return GoodResult;
-                }
-                else
-                {
-                    x1 += v1;
-                    x2 += v2;
-                }
-            }
-            return BadResult;
-        }
-
-        /// <summary>
-        /// This method is an implementation of <c>Kangaroo</c> using math.
-        /// https://www.hackerrank.com/challenges/kangaroo/problem
-        /// </summary>
-        /// <param name="x1">An <c>int</c> representing the starting place of the first kangoroo.</param>
-        /// <param name="v1">An <c>int</c> representing the speed of the first kangoroo.</param>
-        /// <param name="x2">An <c>int</c> representing the starting place of the second kangoroo.</param>
-        /// <param name="v2">An <c>int</c> representing the speed of the second kangoroo.</param>
-        /// <returns>
-        /// The result of if it's possible for them to be at the same place at the same time as a <c>string</c> .
-        /// </returns>
-        public static string KangarooMath(int x1, int v1, int x2, int v2)
-        {
-            const string GoodResult = "YES";
-            const string BadResult = "NO";
             if (v1 < v2 || x1 != x2 && v2 - v1 == 0)
             {
                 return BadResult;
@@ -440,7 +406,7 @@ namespace HackerRank.Algorithms
         /// The minimum number of pages to get to <c>p</c> as an <c>int</c>.
         /// </returns>
         public static int PageCount(int n, int p)
-            => Math.Min(p / 2, 
+            => Math.Min(p / 2,
                         ((n % 2 == 0 ? n + 1 : n) - p) / 2);
     }
 }

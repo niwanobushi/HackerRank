@@ -1,7 +1,6 @@
 ﻿using HackerRank.Extensions;
 using System;
 using System.Linq;
-using System.Reflection.PortableExecutable;
 
 namespace HackerRank.Algorithms
 {
@@ -40,6 +39,40 @@ namespace HackerRank.Algorithms
                 }
             }
             return count;
+        }
+
+        /// <summary>
+        /// https://www.hackerrank.com/challenges/caesar-cipher-1/problem
+        /// </summary>
+        /// <param name="s">A <c>string</c> representing a message.</param>
+        /// <param name="k">An <c>int</c> representing the alphabet rotation.</param>
+        /// <returns>
+        /// The encoded message as a <c>string</c>.
+        /// </returns>
+        public static string CaesarCipher(string s, int k)
+        {
+            const int alphabetSize = 26;
+            const int AValue = 65;
+            const int ZValue = 90;
+            const int aValue = 97;
+            const int zValue = 122;
+            var rotatedIndex = (k + alphabetSize) % alphabetSize;
+            return new string(s.Select(character =>
+                               {
+                                   var charIndex = (int)character;
+                                   if (charIndex >= AValue && charIndex <= ZValue)
+                                   {
+                                       var newIndex = (((charIndex - AValue) + rotatedIndex + alphabetSize) % alphabetSize) + AValue;
+                                       return (char)(newIndex);
+                                   }
+                                   if (charIndex >= aValue && charIndex <= zValue)
+                                   {
+                                       var newIndex = (((charIndex - aValue) + rotatedIndex + alphabetSize) % alphabetSize) + aValue;
+                                       return (char)(newIndex);
+                                   }
+                                   return character;
+                               })
+                               .ToArray());
         }
 
         /// <summary>

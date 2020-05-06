@@ -94,14 +94,6 @@ namespace HackerRankTests.Algorithms
         [TestCase(0, 3, 4, 2, ExpectedResult = "YES")]
         [TestCase(0, 2, 5, 3, ExpectedResult = "NO")]
         [TestCase(43, 2, 70, 2, ExpectedResult = "NO")]
-        public string KangarooMathTest(int number1, int number2, int number3, int number4)
-            => Implementation.KangarooMath(number1, number2, number3, number4);
-
-        [Test]
-        [TestCase(2, 1, 2, 1, ExpectedResult = "YES")]
-        [TestCase(0, 3, 4, 2, ExpectedResult = "YES")]
-        [TestCase(0, 2, 5, 3, ExpectedResult = "NO")]
-        [TestCase(43, 2, 70, 2, ExpectedResult = "NO")]
         public string KangarooTest(int number1, int number2, int number3, int number4)
             => Implementation.Kangaroo(number1, number2, number3, number4);
 

@@ -14,6 +14,23 @@ namespace HackerRankTests.Algorithms
             => Strings.Alternate(text);
 
         [Test]
+        [TestCase("A", 1, ExpectedResult = "B")]
+        [TestCase("a", 1, ExpectedResult = "b")]
+        [TestCase("W", 1, ExpectedResult = "X")]
+        [TestCase("W", 1, ExpectedResult = "X")]
+        [TestCase("W", 3, ExpectedResult = "Z")]
+        [TestCase("w", 1, ExpectedResult = "x")]
+        [TestCase("w", 1, ExpectedResult = "x")]
+        [TestCase("w", 3, ExpectedResult = "z")]
+        [TestCase("Z", 1, ExpectedResult = "A")]
+        [TestCase("z", 1, ExpectedResult = "a")]
+        [TestCase("abcdefghijklmnopqrstuvwxyz", 3, ExpectedResult = "defghijklmnopqrstuvwxyzabc")]
+        [TestCase("Always-Look-on-the-Bright-Side-of-Life", 5, ExpectedResult = "Fqbfdx-Qttp-ts-ymj-Gwnlmy-Xnij-tk-Qnkj")]
+        [TestCase("middle-Outz", 2, ExpectedResult = "okffng-Qwvb")]
+        public string CaesarCipherTest(string text, int number)
+            => Strings.CaesarCipher(text, number);
+
+        [Test]
         [TestCase("oneTwoThree", ExpectedResult = 3)]
         [TestCase("saveChangesInTheEditor", ExpectedResult = 5)]
         public int CamelcaseTest(string text)
