@@ -243,6 +243,7 @@ namespace HackerRank.InterviewPreparation
         /// <summary>
         /// This method is an implementation of <c>RotLeft</c> using LINQ.
         /// https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
+        /// https://www.hackerrank.com/challenges/array-left-rotation/problem
         /// </summary>
         /// <param name="a">An <c>Array</c> of <c>int</c>.</param>
         /// <param name="d">An <c>int</c> representing the number of rotations.</param>
