@@ -1,5 +1,6 @@
 ﻿using HackerRank.Extensions;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace HackerRank.Algorithms
@@ -51,23 +52,23 @@ namespace HackerRank.Algorithms
         /// </returns>
         public static string CaesarCipher(string s, int k)
         {
-            const int alphabetSize = 26;
+            const int AlphabetSize = 26;
             const int AValue = 65;
             const int ZValue = 90;
             const int aValue = 97;
             const int zValue = 122;
-            var rotatedIndex = (k + alphabetSize) % alphabetSize;
+            var rotatedIndex = (k + AlphabetSize) % AlphabetSize;
             return new string(s.Select(character =>
                                {
                                    var charIndex = (int)character;
                                    if (charIndex >= AValue && charIndex <= ZValue)
                                    {
-                                       var newIndex = (((charIndex - AValue) + rotatedIndex + alphabetSize) % alphabetSize) + AValue;
+                                       var newIndex = (((charIndex - AValue) + rotatedIndex + AlphabetSize) % AlphabetSize) + AValue;
                                        return (char)(newIndex);
                                    }
                                    if (charIndex >= aValue && charIndex <= zValue)
                                    {
-                                       var newIndex = (((charIndex - aValue) + rotatedIndex + alphabetSize) % alphabetSize) + aValue;
+                                       var newIndex = (((charIndex - aValue) + rotatedIndex + AlphabetSize) % AlphabetSize) + aValue;
                                        return (char)(newIndex);
                                    }
                                    return character;
@@ -84,6 +85,87 @@ namespace HackerRank.Algorithms
         /// </returns>
         public static int Camelcase(string s)
             => s.Count(character => char.IsUpper(character)) + 1;
+
+        /// <summary>
+        /// https://www.hackerrank.com/challenges/hackerrank-in-a-string/problem
+        /// </summary>
+        /// <param name="s">A <c>string</c>.</param>
+        /// <returns>
+        /// The result as a <c>string</c>.
+        /// </returns>
+        public static string HackerrankInString(string s)
+        {
+            const string HackerRank = "hackerrank";
+            var lastIndex = 0;
+            for (var i = 0; i < s.Length; i++)
+            {
+                for (var j = lastIndex; j < HackerRank.Length; j++)
+                {
+                    if (s[i] == HackerRank[j])
+                    {
+                        lastIndex++;
+                    }
+                }
+                if (lastIndex == HackerRank.Length)
+                {
+                    break;
+                }
+            }
+            return lastIndex == HackerRank.Length ? "YES" : "NO";
+        }
+
+        /// <summary>
+        /// https://www.hackerrank.com/challenges/hackerrank-in-a-string/problem
+        /// </summary>
+        /// <param name="s">A <c>string</c>.</param>
+        /// <returns>
+        /// The result as a <c>string</c>.
+        /// </returns>
+        public static string HackerrankInStringQueue(string s)
+        {
+            const string HackerRank = "hackerrank";
+            var queue = new Queue<char>(HackerRank.ToList());
+            foreach (var character in s)
+            {
+                if (character == queue.Peek())
+                {
+                    queue.Dequeue();
+                    if (!queue.Any())
+                    {
+                        return "YES";
+                    }
+                }
+            }
+            return "NO";
+        }
+
+        /// <summary>
+        /// https://www.hackerrank.com/challenges/mars-exploration/problem
+        /// </summary>
+        /// <param name="s">A <c>string</c> representing a message.</param>
+        /// <returns>
+        /// The number altered letters in <c>s</c> as an <c>int</c>.
+        /// </returns>
+        public static int MarsExploration(string s)
+        {
+            var count = 0;
+            for (var i = 0; i < s.Length - 2; i += 3)
+            {
+                if (s[i] != 'S')
+                {
+                    count++;
+                }
+                if (s[i + 1] != 'O')
+                {
+                    count++;
+                }
+                if (s[i + 2] != 'S')
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
 
         /// <summary>
         /// https://www.hackerrank.com/challenges/strong-password/problem

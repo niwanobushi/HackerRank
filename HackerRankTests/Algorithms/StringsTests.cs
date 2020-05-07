@@ -37,6 +37,31 @@ namespace HackerRankTests.Algorithms
             => Strings.Camelcase(text);
 
         [Test]
+        [TestCase("hereiamstackerrank", ExpectedResult = "YES")]
+        [TestCase("hackerworld", ExpectedResult = "NO")]
+        [TestCase("hhaacckkekraraannk", ExpectedResult = "YES")]
+        [TestCase("hhaacckkekraraannkabc", ExpectedResult = "YES")]
+        [TestCase("rhbaasdndfsdskgbfefdbrsdfhuyatrjtcrtyytktjjt", ExpectedResult = "NO")]
+        public string HackerrankInQueueTest(string text)
+            => Strings.HackerrankInStringQueue(text);
+
+        [Test]
+        [TestCase("hereiamstackerrank", ExpectedResult = "YES")]
+        [TestCase("hackerworld", ExpectedResult = "NO")]
+        [TestCase("hhaacckkekraraannk", ExpectedResult = "YES")]
+        [TestCase("rhbaasdndfsdskgbfefdbrsdfhuyatrjtcrtyytktjjt", ExpectedResult = "NO")]
+        public string HackerrankInStringTest(string text)
+            => Strings.HackerrankInString(text);
+
+        [Test]
+        [TestCase("SOSTOT", ExpectedResult = 2)]
+        [TestCase("SOSSPSSQSSOR", ExpectedResult = 3)]
+        [TestCase("SOSSOT", ExpectedResult = 1)]
+        [TestCase("SOSSOSSOS", ExpectedResult = 0)]
+        public int MarsExplorationTest(string text)
+            => Strings.MarsExploration(text);
+
+        [Test]
         [TestCase(3, "Ab1", ExpectedResult = 3)]
         [TestCase(11, "#HackerRank", ExpectedResult = 1)]
         public int MinimumNumberTest(int n, string text)

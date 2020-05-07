@@ -2,7 +2,6 @@
 using HackerRankTests.Repositories;
 using NUnit.Framework;
 using System.Collections;
-using System.Linq;
 
 namespace HackerRankTests.InterviewPreparationTests
 {
