@@ -73,6 +73,13 @@ namespace HackerRankTests.Algorithms
             => Implementation.DivisibleSumPairs(number1, number2, numbers);
 
         [Test]
+        [TestCase(new int[] { 40, 50, 60 }, new int[] { 5, 8, 12 }, 60, ExpectedResult = 58)]
+        [TestCase(new int[] { 3, 1 }, new int[] { 5, 2, 8 }, 10, ExpectedResult = 9)]
+        [TestCase(new int[] { 4 }, new int[] { 5 }, 5, ExpectedResult = -1)]
+        public int GetMoneySpentTest(int[] numbers1, int[] numbers2, int number)
+            => Implementation.GetMoneySpent(numbers1, numbers2, number);
+
+        [Test]
         [TestCase(new int[] { 2, 6 }, new int[] { 24, 36 }, ExpectedResult = 2)]
         [TestCase(new int[] { 2, 4 }, new int[] { 16, 32, 96 }, ExpectedResult = 3)]
         [TestCase(new int[] { 3, 4 }, new int[] { 24, 48 }, ExpectedResult = 2)]

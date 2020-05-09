@@ -68,6 +68,20 @@ namespace HackerRankTests.Algorithms
             => Strings.MinimumNumber(n, text);
 
         [Test]
+        [TestCase("The quick brown fox jumps over the lazy dog", ExpectedResult = "pangram")]
+        [TestCase("We promptly judged antique ivory buckles for the next prize", ExpectedResult = "pangram")]
+        [TestCase("We promptly judged antique ivory buckles for the prize", ExpectedResult = "not pangram")]
+        public string PangramsLinqTest(string text)
+            => Strings.PangramsLinq(text);
+
+        [Test]
+        [TestCase("The quick brown fox jumps over the lazy dog", ExpectedResult = "pangram")]
+        [TestCase("We promptly judged antique ivory buckles for the next prize", ExpectedResult = "pangram")]
+        [TestCase("We promptly judged antique ivory buckles for the prize", ExpectedResult = "not pangram")]
+        public string PangramsTest(string text)
+            => Strings.Pangrams(text);
+
+        [Test]
         [TestCase("aaabccddd", ExpectedResult = "abd")]
         [TestCase("aa", ExpectedResult = "Empty String")]
         [TestCase("baab", ExpectedResult = "Empty String")]

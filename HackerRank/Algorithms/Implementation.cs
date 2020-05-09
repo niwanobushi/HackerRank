@@ -286,6 +286,32 @@ namespace HackerRank.Algorithms
         }
 
         /// <summary>
+        /// https://www.hackerrank.com/challenges/electronics-shop/problem
+        /// </summary>
+        /// <param name="keyboards">An <c>Array</c> of <c>int</c> representing keyboards and its prices.</param>
+        /// <param name="drives">An <c>Array</c> of <c>int</c> representing drives and its prices.</param>
+        /// <param name="b">An <c>int</c> representing the budget.</param>
+        /// <returns>
+        /// The amount spent as an <c>int</c>.
+        /// </returns>
+        public static int GetMoneySpent(int[] keyboards, int[] drives, int b)
+        {
+            var totalSpent = -1;
+            foreach (var keyboard in keyboards)
+            {
+                foreach (var drive in drives)
+                {
+                    var cost = keyboard + drive;
+                    if (cost > totalSpent && cost <= b)
+                    {
+                        totalSpent = cost;
+                    }
+                }
+            }
+            return totalSpent;
+        }
+
+        /// <summary>
         /// https://www.hackerrank.com/challenges/grading/problem
         /// </summary>
         /// <param name="a">A <c>List</c> of <c>int</c>.</param>

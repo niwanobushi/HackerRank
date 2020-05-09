@@ -199,6 +199,45 @@ namespace HackerRank.Algorithms
         }
 
         /// <summary>
+        /// https://www.hackerrank.com/challenges/pangrams/problem
+        /// </summary>
+        /// <param name="s">A <c>string</c>.</param>
+        /// <returns>
+        /// The result if <c>s</c> is a pangram as a <c>string</c>.
+        /// </returns>
+        public static string Pangrams(string s)
+        {
+            var queue = new Queue<char>("abcdefghijklmnopqrstuvwxyz");
+            var lowerS = s.ToLower();
+            do
+            {
+                if (!lowerS.Contains(queue.Peek()))
+                {
+                    return "not pangram";
+                }
+                queue.Dequeue();
+            }
+            while (queue.Any());
+            return "pangram";
+        }
+
+        /// <summary>
+        /// This method is an implementation of <c>Pangrams</c> using LINQ.
+        /// https://www.hackerrank.com/challenges/pangrams/problem
+        /// </summary>
+        /// <param name="s">A <c>string</c>.</param>
+        /// <returns>
+        /// The result if <c>s</c> is a pangram as a <c>string</c>.
+        /// </returns>
+        public static string PangramsLinq(string s)
+            => s.Replace(" ", string.Empty)
+                .ToLower()
+                .GroupBy(character => character)
+                .Count() == 26 ?
+                    "pangram" :
+                    "not pangram";
+
+        /// <summary>
         /// https://www.hackerrank.com/challenges/reduced-string/problem
         /// </summary>
         /// <param name="s">A <c>string</c>.</param>

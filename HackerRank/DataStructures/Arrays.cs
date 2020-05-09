@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace HackerRank.DataStructures
@@ -11,11 +12,43 @@ namespace HackerRank.DataStructures
     public static class Arrays
     {
         /// <summary>
+        /// https://www.hackerrank.com/challenges/dynamic-array/problem
+        /// </summary>
+        /// <param name="n">An <c>int</c> representing the number of sequences.</param>
+        /// <param name="queries">A <c>List</c> of <c>List</c> of <c>int</c>.</param>
+        /// <returns>
+        /// The result as a <c>List</c> of <c>int</c>.
+        /// </returns>
+        public static List<int> DynamicArray(int n, List<List<int>> queries)
+        {
+            var seqLists = Enumerable.Range(1, n)
+                                     .Select(i => new List<int>())
+                                     .ToList();
+            var lastAnswers = new List<int>();
+            var lastAnswer = 0;
+            foreach (var query in queries)
+            {
+                var seq = seqLists[(query[1] ^ lastAnswer) % n];
+                if (query[0] == 1)
+                {
+                    seq.Add(query[2]);
+                }
+                else
+                {
+                    lastAnswer = seq[query[2] % seq.Count()];
+                    lastAnswers.Add(lastAnswer);
+                }
+            }
+            return lastAnswers;
+        }
+
+        /// <summary>
         /// https://www.hackerrank.com/challenges/sparse-arrays/problem
         /// </summary>
-        /// <param name="a">An <c>Array</c> of <c>int</c>.</param>
+        /// <param name="strings">An <c>Array</c> of <c>string</c>.</param>
+        /// <param name="queries">An <c>Array</c> of <c>string</c> representing texts to be found in <c>strings</c>.</param>
         /// <returns>
-        /// The reverse ordered <c>a</c> as an <c>Array</c> of <c>int</c>.
+        /// The count of matches of elements in <c>queries</c> in <c>strings</c> as an <c>Array</c> of <c>int</c>.
         /// </returns>
         public static int[] MatchingStrings(string[] strings, string[] queries)
         {
@@ -36,11 +69,13 @@ namespace HackerRank.DataStructures
         }
 
         /// <summary>
+        /// This method is an implementation of <c>MatchingStrings</c> using LINQ.
         /// https://www.hackerrank.com/challenges/sparse-arrays/problem
         /// </summary>
-        /// <param name="a">An <c>Array</c> of <c>int</c>.</param>
+        /// <param name="strings">An <c>Array</c> of <c>string</c>.</param>
+        /// <param name="queries">An <c>Array</c> of <c>string</c> representing texts to be found in <c>strings</c>.</param>
         /// <returns>
-        /// The reverse ordered <c>a</c> as an <c>Array</c> of <c>int</c>.
+        /// The count of matches of elements in <c>queries</c> in <c>strings</c> as an <c>Array</c> of <c>int</c>.
         /// </returns>
         public static int[] MatchingStringsLinq(string[] strings, string[] queries)
             => queries.Select(query => strings.Count(text => text == query))
