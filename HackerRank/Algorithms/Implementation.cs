@@ -325,19 +325,24 @@ namespace HackerRank.Algorithms
                 new int[][]{ new int[] { 6, 7, 2 }, new int[] { 1, 5, 9 }, new int[] { 8, 3, 4 } },
                 new int[][]{ new int[] { 8, 3, 4 }, new int[] { 1, 5, 9 }, new int[] { 6, 7, 2 } },
             };
-            var results = new int[8];
-            for (var i = 0; i < results.Length; i++)
+            var result = int.MaxValue;
+            for (var i = 0; i < magicSquares.Length; i++)
             {
                 var square = magicSquares[i];
+                var tempResult = 0;
                 for (var j = 0; j < square.Length; j++)
                 {
                     for (var k = 0; k < square.Length; k++)
                     {
-                        results[i] += Math.Abs(s[j][k] - square[j][k]);
+                        tempResult += Math.Abs(s[j][k] - square[j][k]);
                     }
                 }
+                if (tempResult < result)
+                {
+                    result = tempResult;
+                }
             }
-            return results.Min();
+            return result;
         }
 
         /// <summary>
