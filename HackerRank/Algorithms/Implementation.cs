@@ -166,6 +166,26 @@ namespace HackerRank.Algorithms
         }
 
         /// <summary>
+        /// https://www.hackerrank.com/challenges/cats-and-a-mouse/problem
+        /// </summary>
+        /// <param name="x">An <c>int</c> representing a cat's position.</param>
+        /// <param name="y">An <c>int</c> representing a cat's position.</param>
+        /// <param name="z">An <c>int</c> representing a mouse's position.</param>
+        /// <returns>
+        /// The count of apples and oranges that fell on the house as a <c>string</c>.
+        /// </returns>
+        public static string CatAndMouse(int x, int y, int z)
+        {
+            var distToX = Math.Abs(x - z);
+            var distToY = Math.Abs(y - z);
+            return distToX == distToY ?
+                    "Mouse C" :
+                    distToX < distToY ?
+                        "Cat A" :
+                        "Cat B";
+        }
+
+        /// <summary>
         /// https://www.hackerrank.com/challenges/apple-and-orange/problem
         /// </summary>
         /// <param name="s">An <c>int</c> representing where the house starts.</param>
@@ -283,6 +303,41 @@ namespace HackerRank.Algorithms
                 }
             }
             return count;
+        }
+
+        /// <summary>
+        /// https://www.hackerrank.com/challenges/magic-square-forming/problem
+        /// </summary>
+        /// <param name="s">An <c>Array</c> of <c>Array</c> of <c>int</c> representing a magic square.</param>
+        /// <returns>
+        /// The minimu cost of turning <c>s</c> into a magic square as an <c>int</c>.
+        /// </returns>
+        public static int FormingMagicSquare(int[][] s)
+        {
+            var magicSquares = new int[][][]
+            {
+                new int[][]{ new int[] { 8, 1, 6 }, new int[] { 3, 5, 7 }, new int[] { 4, 9, 2 } },
+                new int[][]{ new int[] { 6, 1, 8 }, new int[] { 7, 5, 3 }, new int[] { 2, 9, 4 } },
+                new int[][]{ new int[] { 4, 3, 8 }, new int[] { 9, 5, 1 }, new int[] { 2, 7, 6 } },
+                new int[][]{ new int[] { 2, 7, 6 }, new int[] { 9, 5, 1 }, new int[] { 4, 3, 8 } },
+                new int[][]{ new int[] { 2, 9, 4 }, new int[] { 7, 5, 3 }, new int[] { 6, 1, 8 } },
+                new int[][]{ new int[] { 4, 9, 2 }, new int[] { 3, 5, 7 }, new int[] { 8, 1, 6 } },
+                new int[][]{ new int[] { 6, 7, 2 }, new int[] { 1, 5, 9 }, new int[] { 8, 3, 4 } },
+                new int[][]{ new int[] { 8, 3, 4 }, new int[] { 1, 5, 9 }, new int[] { 6, 7, 2 } },
+            };
+            var results = new int[8];
+            for (var i = 0; i < results.Length; i++)
+            {
+                var square = magicSquares[i];
+                for (var j = 0; j < square.Length; j++)
+                {
+                    for (var k = 0; k < square.Length; k++)
+                    {
+                        results[i] += Math.Abs(s[j][k] - square[j][k]);
+                    }
+                }
+            }
+            return results.Min();
         }
 
         /// <summary>

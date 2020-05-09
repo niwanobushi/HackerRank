@@ -45,6 +45,12 @@ namespace HackerRankTests.Algorithms
             => Implementation.BreakingRecords(numbers);
 
         [Test]
+        [TestCase(1, 2, 3, ExpectedResult = "Cat B")]
+        [TestCase(1, 3, 2, ExpectedResult = "Mouse C")]
+        public string CatAndMouseTest(int number1, int number2, int number3)
+            => Implementation.CatAndMouse(number1, number2, number3);
+
+        [Test]
         [TestCase(7, 10, 4, 12, new int[] { 2, 3, -4 }, new int[] { 3, -2, -4 }, ExpectedResult = new int[] { 1, 2 })]
         [TestCase(7, 11, 5, 15, new int[] { -2, 2, 1 }, new int[] { 5, -6 }, ExpectedResult = new int[] { 1, 1 })]
         public int[] CountApplesAndOrangesLinqTest(int number1, int number2, int number3, int number4, int[] numbers1, int[] numbers2)
@@ -71,6 +77,11 @@ namespace HackerRankTests.Algorithms
         [TestCase(2, 2, new int[] { 8, 10 }, ExpectedResult = 1)]
         public int DivisibleSumPairsTest(int number1, int number2, int[] numbers)
             => Implementation.DivisibleSumPairs(number1, number2, numbers);
+
+        [Test]
+        [TestCaseSource(typeof(FormingMagicSquareTestData), "TestCases")]
+        public int FormingMagicSquareTest(int[][] numbers2D)
+            => Implementation.FormingMagicSquare(numbers2D);
 
         [Test]
         [TestCase(new int[] { 40, 50, 60 }, new int[] { 5, 8, 12 }, 60, ExpectedResult = 58)]
@@ -121,6 +132,43 @@ namespace HackerRankTests.Algorithms
             => Implementation.PageCount(number1, number2);
 
         // data sources
+
+        public class FormingMagicSquareTestData
+        {
+            public static IEnumerable TestCases
+            {
+                get
+                {
+                    yield return new TestCaseData(new int[][][]
+                    {
+                        new int[][]
+                        {
+                            new int[] { 5, 3, 4 },
+                            new int[] { 1, 5, 8 },
+                            new int[] { 6, 4, 2 }
+                        }
+                    }).Returns(7);
+                    yield return new TestCaseData(new int[][][]
+                    {
+                        new int[][]
+                        {
+                            new int[] { 4, 9, 2 },
+                            new int[] { 3, 5, 7 },
+                            new int[] { 8, 1, 5 }
+                        }
+                    }).Returns(1);
+                    yield return new TestCaseData(new int[][][]
+                    {
+                        new int[][]
+                        {
+                            new int[] { 4, 8, 2 },
+                            new int[] { 4, 5, 7 },
+                            new int[] { 6, 1, 6 }
+                        }
+                    }).Returns(4);
+                }
+            }
+        }
 
         public class MigratoryBirdsTestData
         {
