@@ -5,4 +5,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Algorithms\Implementation.cs~RF325d4500.TMP" />
+  </ItemGroup>
+
 </Project>

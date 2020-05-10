@@ -131,6 +131,13 @@ namespace HackerRankTests.Algorithms
         public int PageCountTest(int number1, int number2)
             => Implementation.PageCount(number1, number2);
 
+        [Test]
+        [TestCase(new int[] { 1, 1, 2, 2, 4, 4, 5, 5, 5 }, ExpectedResult = 5)]
+        [TestCase(new int[] { 4, 6, 5, 3, 3, 1 }, ExpectedResult = 3)]
+        [TestCase(new int[] { 1, 2, 2, 3, 1, 2 }, ExpectedResult = 5)]
+        public int PickingNumbersTest(int[] numbers)
+            => Implementation.PickingNumbers(numbers.ToList());
+
         // data sources
 
         public class FormingMagicSquareTestData

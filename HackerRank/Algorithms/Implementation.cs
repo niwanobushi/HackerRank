@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HackerRank.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -185,6 +186,7 @@ namespace HackerRank.Algorithms
                         "Cat B";
         }
 
+
         /// <summary>
         /// https://www.hackerrank.com/challenges/apple-and-orange/problem
         /// </summary>
@@ -310,7 +312,7 @@ namespace HackerRank.Algorithms
         /// </summary>
         /// <param name="s">An <c>Array</c> of <c>Array</c> of <c>int</c> representing a magic square.</param>
         /// <returns>
-        /// The minimu cost of turning <c>s</c> into a magic square as an <c>int</c>.
+        /// The minimum cost of turning <c>s</c> into a magic square as an <c>int</c>.
         /// </returns>
         public static int FormingMagicSquare(int[][] s)
         {
@@ -494,5 +496,21 @@ namespace HackerRank.Algorithms
         public static int PageCount(int n, int p)
             => Math.Min(p / 2,
                         ((n % 2 == 0 ? n + 1 : n) - p) / 2);
+
+        /// <summary>
+        /// https://www.hackerrank.com/challenges/picking-numbers/problem
+        /// </summary>
+        /// <param name="a">A <c>List</c> of <c>int</c>.</param>
+        /// <returns>
+        /// The minimum number of pages to get to <c>p</c> as an <c>int</c>.
+        /// </returns>
+        public static int PickingNumbers(List<int> a)
+        {
+            var permutations = a.GetPermutations()
+                                .Where(permutation => Math.Abs(permutation.ToArray()[0] - permutation.ToArray()[1]) <= 1);
+            return permutations.Select(permutation => a.Count(number => number == permutation.ToArray()[0] ||
+                                                                        number == permutation.ToArray()[1]))
+                               .Max();
+        }
     }
 }
