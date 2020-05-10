@@ -186,6 +186,53 @@ namespace HackerRank.Algorithms
                         "Cat B";
         }
 
+        /// <summary>
+        /// https://www.hackerrank.com/challenges/climbing-the-leaderboard/problem
+        /// </summary>
+        /// <param name="scores">An <c>Array</c> of <c>int</c> representing scores in a leaderboard in descending order.</param>
+        /// <param name="alice">An <c>Array</c> of <c>int</c> representing a gamer's scores in ascending order.</param>
+        /// <returns>
+        /// The positions as an <c>Array</c> of <c>string</c>.
+        /// </returns>
+        public static int[] ClimbingLeaderboard(int[] scores, int[] alice)
+        {
+            var distinctScores = scores.Distinct()
+                                       .OrderBy(score => score)
+                                       .ToArray();
+            var alicePositions = new int[alice.Length];
+            for (var i = 0; i < alice.Length; i++)
+            {
+                var index = Array.BinarySearch(distinctScores, alice[i]);
+                alicePositions[i] = index >= 0 ?
+                                        distinctScores.Length - index :
+                                        distinctScores.Length + 1 - ~index;
+            }
+            return alicePositions;
+        }
+
+        /// <summary>
+        /// This method is an implementation of <c>ClimbingLeaderboard</c> using LINQ.
+        /// https://www.hackerrank.com/challenges/climbing-the-leaderboard/problem
+        /// </summary>
+        /// <param name="scores">An <c>Array</c> of <c>int</c> representing scores in a leaderboard in descending order.</param>
+        /// <param name="alice">An <c>Array</c> of <c>int</c> representing a gamer's scores in ascending order.</param>
+        /// <returns>
+        /// The positions as an <c>Array</c> of <c>string</c>.
+        /// </returns>
+        public static int[] ClimbingLeaderboardLinq(int[] scores, int[] alice)
+        {
+            var distinctScores = scores.Distinct()
+                                       .OrderBy(score => score)
+                                       .ToArray();
+            return alice.Select(aliceScore =>
+                        {
+                            var index = Array.BinarySearch(distinctScores, aliceScore);
+                            return index >= 0 ?
+                                    distinctScores.Length - index :
+                                    distinctScores.Length + 1 - ~index;
+                        })
+                        .ToArray();
+        }
 
         /// <summary>
         /// https://www.hackerrank.com/challenges/apple-and-orange/problem

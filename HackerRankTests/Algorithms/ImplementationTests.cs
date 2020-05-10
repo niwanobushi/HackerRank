@@ -45,6 +45,20 @@ namespace HackerRankTests.Algorithms
             => Implementation.BreakingRecords(numbers);
 
         [Test]
+        [TestCase(new int[] { 100, 90, 90, 80 }, new int[] { 70, 80, 105 }, ExpectedResult = new int[] { 4, 3, 1 })]
+        [TestCase(new int[] { 100, 100, 50, 40, 40, 20, 10 }, new int[] { 5, 25, 50, 120 }, ExpectedResult = new int[] { 6, 4, 2, 1 })]
+        [TestCase(new int[] { 100, 90, 90, 80, 75, 60 }, new int[] { 50, 65, 77, 90, 102 }, ExpectedResult = new int[] { 6, 5, 4, 2, 1 })]
+        public int[] ClimbingLeaderboardLinqTest(int[] numbers1, int[] numbers2)
+            => Implementation.ClimbingLeaderboardLinq(numbers1, numbers2);
+
+        [Test]
+        [TestCase(new int[] { 100, 90, 90, 80 }, new int[] { 70, 80, 105 }, ExpectedResult = new int[] { 4, 3, 1 })]
+        [TestCase(new int[] { 100, 100, 50, 40, 40, 20, 10 }, new int[] { 5, 25, 50, 120 }, ExpectedResult = new int[] { 6, 4, 2, 1 })]
+        [TestCase(new int[] { 100, 90, 90, 80, 75, 60 }, new int[] { 50, 65, 77, 90, 102 }, ExpectedResult = new int[] { 6, 5, 4, 2, 1 })]
+        public int[] ClimbingLeaderboardTest(int[] numbers1, int[] numbers2)
+            => Implementation.ClimbingLeaderboard(numbers1, numbers2);
+
+        [Test]
         [TestCase(1, 2, 3, ExpectedResult = "Cat B")]
         [TestCase(1, 3, 2, ExpectedResult = "Mouse C")]
         public string CatAndMouseTest(int number1, int number2, int number3)
