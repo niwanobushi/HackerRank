@@ -122,6 +122,20 @@ namespace HackerRankTests.Algorithms
             => Implementation.GradingStudents(numbers.ToList());
 
         [Test]
+        [TestCase(1, new int[] { 1, 2, 3, 3, 2 }, ExpectedResult = 2)]
+        [TestCase(4, new int[] { 1, 6, 3, 5, 2 }, ExpectedResult = 2)]
+        [TestCase(7, new int[] { 2, 5, 4, 5, 2 }, ExpectedResult = 0)]
+        public int HurdleRaceLinqTest(int number, int[] numbers)
+            => Implementation.HurdleRaceLinq(number, numbers);
+
+        [Test]
+        [TestCase(1, new int[] { 1, 2, 3, 3, 2 }, ExpectedResult = 2)]
+        [TestCase(4, new int[] { 1, 6, 3, 5, 2 }, ExpectedResult = 2)]
+        [TestCase(7, new int[] { 2, 5, 4, 5, 2 }, ExpectedResult = 0)]
+        public int HurdleRaceTest(int number, int[] numbers)
+            => Implementation.HurdleRace(number, numbers);
+
+        [Test]
         [TestCase(2, 1, 2, 1, ExpectedResult = "YES")]
         [TestCase(0, 3, 4, 2, ExpectedResult = "YES")]
         [TestCase(0, 2, 5, 3, ExpectedResult = "NO")]

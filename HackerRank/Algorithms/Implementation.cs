@@ -454,17 +454,10 @@ namespace HackerRank.Algorithms
             var updatedGrades = new List<int>();
             foreach (var grade in grades)
             {
-                if (grade >= 38)
+                var dif = 5 - grade % 5;
+                if (grade >= 38 && dif < 3)
                 {
-                    var dif = 5 - grade % 5;
-                    if (dif < 3)
-                    {
-                        updatedGrades.Add(grade + dif);
-                    }
-                    else
-                    {
-                        updatedGrades.Add(grade);
-                    }
+                    updatedGrades.Add(grade + dif);
                 }
                 else
                 {
@@ -496,6 +489,42 @@ namespace HackerRank.Algorithms
                          return grade;
                      })
                      .ToList();
+
+        /// <summary>
+        /// https://www.hackerrank.com/challenges/the-hurdle-race/problem
+        /// </summary>
+        /// <param name="k">An <c>int</c> representing the height Dan can jump naturally.</param>
+        /// <param name="height">An <c>Array</c> of <c>int</c> representing the heights of each hurdle.</param>
+        /// <returns>
+        /// The the minimum doses of magic potion Dan must drink to complete the hurdle race as an <c>int</c> .
+        /// </returns>
+        public static int HurdleRace(int k, int[] height)
+        {
+            var heighestHurdle = 0;
+            foreach (var item in height)
+            {
+                if (item > heighestHurdle)
+                {
+                    heighestHurdle = item;
+                }
+            }
+            return heighestHurdle > k ? heighestHurdle - k : 0;
+        }
+
+        /// <summary>
+        /// This method is an implementation of <c>HurdleRace</c> using LINQ.
+        /// https://www.hackerrank.com/challenges/the-hurdle-race/problem
+        /// </summary>
+        /// <param name="k">An <c>int</c> representing the height Dan can jump naturally.</param>
+        /// <param name="height">An <c>Array</c> of <c>int</c> representing the heights of each hurdle.</param>
+        /// <returns>
+        /// The the minimum doses of magic potion Dan must drink to complete the hurdle race as an <c>int</c> .
+        /// </returns>
+        public static int HurdleRaceLinq(int k, int[] height)
+        {
+            var heighestHurdle = height.Max();
+            return heighestHurdle > k ? heighestHurdle - k : 0;
+        }
 
         /// <summary>
         /// https://www.hackerrank.com/challenges/kangaroo/problem
