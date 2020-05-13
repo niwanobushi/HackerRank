@@ -330,6 +330,40 @@ namespace HackerRank.Algorithms
         }
 
         /// <summary>
+        /// https://www.hackerrank.com/challenges/designer-pdf-viewer/problem
+        /// </summary>
+        /// <param name="h">An <c>Array</c> of <c>int</c> representing the heights of the letters in the alphabet.</param>
+        /// <param name="word">A <c>string</c> representing a word.</param>
+        /// <returns>
+        /// The area of <c>word</c> as an <c>int</c>.
+        /// </returns>
+        public static int DesignerPdfViewer(int[] h, string word)
+        {
+            var maxHeight = 0;
+            foreach (var character in word)
+            {
+                var height = h[character % 32 - 1];
+                if (height > maxHeight)
+                {
+                    maxHeight = height;
+                }
+            }
+            return maxHeight * word.Length;
+        }
+
+        /// <summary>
+        /// This method is an implementation of <c>DesignerPdfViewer</c> using LINQ.
+        /// https://www.hackerrank.com/challenges/designer-pdf-viewer/problem
+        /// </summary>
+        /// <param name="h">An <c>Array</c> of <c>int</c> representing the heights of the letters in the alphabet.</param>
+        /// <param name="word">A <c>string</c> representing a word.</param>
+        /// <returns>
+        /// The area of <c>word</c> as an <c>int</c>.
+        /// </returns>
+        public static int DesignerPdfViewerLinq(int[] h, string word)
+            => word.Max(character => h[character % 32 - 1]) * word.Length;
+
+        /// <summary>
         /// https://www.hackerrank.com/challenges/divisible-sum-pairs/problem
         /// </summary>
         /// <param name="n">An <c>int</c> representing the length of <c>ar</c>.</param>

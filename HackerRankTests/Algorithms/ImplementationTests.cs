@@ -85,6 +85,26 @@ namespace HackerRankTests.Algorithms
             => Implementation.DayOfProgrammer(number);
 
         [Test]
+        [TestCase(new int[] { 1, 3, 1, 3, 1, 4, 1, 3, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 },
+                  "abc",
+                  ExpectedResult = 9)]
+        [TestCase(new int[] { 1, 3, 1, 3, 1, 4, 1, 3, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 7 },
+                  "zaba",
+                  ExpectedResult = 28)]
+        public int DesignerPdfViewerLinqTest(int[] numbers, string text)
+            => Implementation.DesignerPdfViewerLinq(numbers, text);
+
+        [Test]
+        [TestCase(new int[] { 1, 3, 1, 3, 1, 4, 1, 3, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5 },
+                  "abc",
+                  ExpectedResult = 9)]
+        [TestCase(new int[] { 1, 3, 1, 3, 1, 4, 1, 3, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 7 },
+                  "zaba",
+                  ExpectedResult = 28)]
+        public int DesignerPdfViewerTest(int[] numbers, string text)
+            => Implementation.DesignerPdfViewer(numbers, text);
+
+        [Test]
         [TestCase(5, 5, new int[] { 1, 2, 3, 4, 5, 6 }, ExpectedResult = 3)]
         [TestCase(6, 3, new int[] { 1, 3, 2, 6, 1, 2 }, ExpectedResult = 5)]
         [TestCase(5, 2, new int[] { 5, 9, 10, 7, 4 }, ExpectedResult = 4)]

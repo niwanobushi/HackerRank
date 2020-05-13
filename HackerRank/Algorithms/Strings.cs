@@ -232,7 +232,7 @@ namespace HackerRank.Algorithms
         public static string PangramsLinq(string s)
             => s.Replace(" ", string.Empty)
                 .ToLower()
-                .GroupBy(character => character)
+                .Distinct()
                 .Count() == 26 ?
                     "pangram" :
                     "not pangram";
