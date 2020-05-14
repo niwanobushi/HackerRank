@@ -622,5 +622,22 @@ namespace HackerRank.Algorithms
                                                                         number == permutation.ToArray()[1]))
                                .Max();
         }
+
+        /// <summary>
+        /// https://www.hackerrank.com/challenges/utopian-tree/problem
+        /// </summary>
+        /// <param name="n">An <c>int</c> representing the number of growth cycles.</param>
+        /// <returns>
+        /// The height of the tree as an <c>int</c>.
+        /// </returns>
+        public static int UtopianTree(int n)
+        {
+            var height = 1;
+            for (var i = 1; i <= n; i++)
+            {
+                height += i % 2 == 0 ? 1 : height;
+            }
+            return height;
+        }
     }
 }

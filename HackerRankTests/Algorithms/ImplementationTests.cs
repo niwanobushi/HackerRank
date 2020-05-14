@@ -186,6 +186,13 @@ namespace HackerRankTests.Algorithms
         public int PickingNumbersTest(int[] numbers)
             => Implementation.PickingNumbers(numbers.ToList());
 
+        [Test]
+        [TestCase(5, ExpectedResult = 14)]
+        [TestCase(0, ExpectedResult = 1)]
+        [TestCase(4, ExpectedResult = 7)]
+        public int UtopianTreeTest(int number)
+            => Implementation.UtopianTree(number);
+
         // data sources
 
         public class FormingMagicSquareTestData
