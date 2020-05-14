@@ -10,6 +10,18 @@ namespace HackerRankTests.Algorithms
     class ImplementationTests
     {
         [Test]
+        [TestCase(3, new int[] { -1, -3, 4, 2 }, ExpectedResult = "YES")]
+        [TestCase(2, new int[] { 0, -1, 2, 1 }, ExpectedResult = "NO")]
+        public string AngryProfessorLinqTest(int number, int[] numbers)
+            => Implementation.AngryProfessorLinq(number, numbers);
+
+        [Test]
+        [TestCase(3, new int[] { -1, -3, 4, 2 }, ExpectedResult = "YES")]
+        [TestCase(2, new int[] { 0, -1, 2, 1 }, ExpectedResult = "NO")]
+        public string AngryProfessorTest(int number, int[] numbers)
+            => Implementation.AngryProfessor(number, numbers);
+
+        [Test]
         [TestCase(new int[] { 2, 2, 1, 3, 2 }, 4, 2, ExpectedResult = 2)]
         [TestCase(new int[] { 1, 2, 1, 3, 2 }, 3, 2, ExpectedResult = 2)]
         [TestCase(new int[] { 1, 1, 1, 1, 1, 1 }, 3, 2, ExpectedResult = 0)]

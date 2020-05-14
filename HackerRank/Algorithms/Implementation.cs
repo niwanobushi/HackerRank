@@ -13,6 +13,40 @@ namespace HackerRank.Algorithms
     public static class Implementation
     {
         /// <summary>
+        /// https://www.hackerrank.com/challenges/angry-professor/problem
+        /// </summary>
+        /// <param name="k">An <c>int</c> representing the minimum number of students on time to the class to continue.</param>
+        /// <param name="a">An <c>Array</c> of <c>int</c> representing the students' arrival times.</param>
+        /// <returns>
+        /// The result of if the class is canceled as a <c>string</c>.
+        /// </returns>
+        public static string AngryProfessor(int k, int[] a)
+        {
+            var onTimeCount = 0;
+            foreach (var time in a)
+            {
+                if (time <= 0)
+                {
+                    onTimeCount++;
+                }
+            }
+            return onTimeCount < k ? "YES" : "NO";
+        }
+
+        /// <summary>
+        /// This method is an implementation of <c>AngryProfessor</c> using LINQ.
+        /// https://www.hackerrank.com/challenges/angry-professor/problem
+        /// </summary>
+        /// <param name="k">An <c>int</c> representing the minimum number of students on time to the class to continue.</param>
+        /// <param name="a">An <c>Array</c> of <c>int</c> representing the students' arrival times.</param>
+        /// <returns>
+        /// The result of if the class is canceled as a <c>string</c>.
+        /// </returns>
+        public static string AngryProfessorLinq(int k, int[] a)
+            => a.Count(time => time <= 0) < k ? "YES" : "NO";
+
+
+        /// <summary>
         /// https://www.hackerrank.com/challenges/the-birthday-bar/problem
         /// </summary>
         /// <param name="s">A <c>List</c> of <c>int</c> representing pieces of chocolates.</param>
