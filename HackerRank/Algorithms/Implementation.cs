@@ -45,6 +45,41 @@ namespace HackerRank.Algorithms
         public static string AngryProfessorLinq(int k, int[] a)
             => a.Count(time => time <= 0) < k ? "YES" : "NO";
 
+        /// <summary>
+        /// https://www.hackerrank.com/challenges/beautiful-days-at-the-movies/problem
+        /// </summary>
+        /// <param name="i">An <c>int</c> representing.</param>
+        /// <param name="j">An <c>int</c> representing.</param>
+        /// <param name="k">An <c>int</c> representing.</param>
+        /// <returns>
+        /// The  as an <c>int</c>.
+        /// </returns>
+        public static int BeautifulDays(int i, int j, int k)
+        {
+            var count = 0;
+            for (var number = i; number <= j; number++)
+            {
+                if ((number - number.Reverse()) % k == 0)
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        /// <summary>
+        /// This method is an implementation of <c>BeautifulDays</c> using LINQ.
+        /// https://www.hackerrank.com/challenges/beautiful-days-at-the-movies/problem
+        /// </summary>
+        /// <param name="i">An <c>int</c> representing.</param>
+        /// <param name="j">An <c>int</c> representing.</param>
+        /// <param name="k">An <c>int</c> representing.</param>
+        /// <returns>
+        /// The  as an <c>int</c>.
+        /// </returns>
+        public static int BeautifulDaysLinq(int i, int j, int k)
+            => Enumerable.Range(i, j - i + 1)
+                         .Count(number => (number - number.Reverse()) % k == 0);
 
         /// <summary>
         /// https://www.hackerrank.com/challenges/the-birthday-bar/problem

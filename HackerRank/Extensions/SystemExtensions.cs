@@ -8,12 +8,42 @@ namespace System
     public static class SystemExtensions
     {
         /// <summary>
+        /// This method checks if an <c>int</c> is a palindrome.
+        /// </summary>
+        /// <param name="number">An <c>int</c>.</param>
+        /// <returns>
+        /// The result of if <c>number</c> is a palindrome as a <c>bool</c>.
+        /// </returns>
+        public static bool IsPalindrome(this int number)
+            => number == number.Reverse();
+
+        /// <summary>
+        /// This method gets the reverse number of an <c>int</c>.
+        /// </summary>
+        /// <param name="number">An <c>int</c>.</param>
+        /// <returns>
+        /// The reverse of <c>number</c> as an <c>int</c>.
+        /// </returns>
+        public static int Reverse(this int number)
+        {
+            var reverse = 0;
+            var quotient = number;
+            while (quotient != 0)
+            {
+                var mod = quotient % 10;
+                quotient /= 10;
+                reverse = reverse * 10 + mod;
+            }
+            return reverse;
+        }
+
+        /// <summary>
         /// This method truncates a <c>float</c>.
         /// </summary>
         /// <param name="number">A <c>float</c>.</param>
         /// <param name="digits">An <c>int</c> representing the number of digits after the decimal point.</param>
         /// <returns>
-        /// The truncated number as an <c>float</c>.
+        /// The truncated number as an <c>float</c>.    
         /// </returns>
         public static float Truncate(this float number, int digits)
         {

@@ -22,6 +22,18 @@ namespace HackerRankTests.Algorithms
             => Implementation.AngryProfessor(number, numbers);
 
         [Test]
+        [TestCase(20, 23, 6, ExpectedResult = 2)]
+        [TestCase(13, 45, 3, ExpectedResult = 33)]
+        public int BeautifulDaysLinqTest(int number1, int number2, int number3)
+            => Implementation.BeautifulDaysLinq(number1, number2, number3);
+
+        [Test]
+        [TestCase(20, 23, 6, ExpectedResult = 2)]
+        [TestCase(13, 45, 3, ExpectedResult = 33)]
+        public int BeautifulDaysTest(int number1, int number2, int number3)
+            => Implementation.BeautifulDays(number1, number2, number3);
+
+        [Test]
         [TestCase(new int[] { 2, 2, 1, 3, 2 }, 4, 2, ExpectedResult = 2)]
         [TestCase(new int[] { 1, 2, 1, 3, 2 }, 3, 2, ExpectedResult = 2)]
         [TestCase(new int[] { 1, 1, 1, 1, 1, 1 }, 3, 2, ExpectedResult = 0)]
