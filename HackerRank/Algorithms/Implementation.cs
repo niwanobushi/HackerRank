@@ -93,7 +93,7 @@ namespace HackerRank.Algorithms
         public static int Birthday(List<int> s, int d, int m)
         {
             var count = 0;
-            for (var i = 0; i < s.Count() - m + 1; i++)
+            for (var i = 0; i < s.Count - m + 1; i++)
             {
                 var sum = 0;
                 for (var j = 0; j < m; j++)
@@ -121,7 +121,7 @@ namespace HackerRank.Algorithms
         public static int BirthdayLinq(List<int> s, int d, int m)
         {
             var count = 0;
-            for (var i = 0; i < s.Count() - m + 1; i++)
+            for (var i = 0; i < s.Count - m + 1; i++)
             {
                 if (s.GetRange(i, m).Sum() == d)
                 {
@@ -143,7 +143,7 @@ namespace HackerRank.Algorithms
         public static string BonAppetit(List<int> bill, int k, int b)
         {
             var sum = 0;
-            for (var i = 0; i < bill.Count(); i++)
+            for (var i = 0; i < bill.Count; i++)
             {
                 if (i != k)
                 {

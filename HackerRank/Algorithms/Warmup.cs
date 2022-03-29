@@ -111,9 +111,9 @@ namespace HackerRank.Algorithms
         public static int DiagonalDifference(List<List<int>> arr)
         {
             var sum = 0;
-            for (var i = 0; i < arr.Count(); i++)
+            for (var i = 0; i < arr.Count; i++)
             {
-                sum += arr[i][i] - arr[i][arr.Count() - i - 1];
+                sum += arr[i][i] - arr[i][arr.Count - i - 1];
             }
             return Math.Abs(sum);
         }
